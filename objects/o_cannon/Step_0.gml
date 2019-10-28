@@ -1,6 +1,9 @@
 if(!instance_exists(target)){
 	state = player_unit.patrolling
 }
+if (energy >= max_energy && state != player_unit.ultimate){
+	state = player_unit.ultimate
+}
 
 switch(state){
 	case player_unit.patrolling:
@@ -33,10 +36,6 @@ switch(state){
 			damage = 5
 		}
 		energy += energy_on_hit
-		if (energy >= max_energy){
-			energy = 0
-			state = player_unit.ultimate
-		}
 	}
 	
 	
@@ -70,6 +69,7 @@ switch(state){
 	if (ultimate_volley_counter = 5){
 		state = player_unit.patrolling
 		ultimate_volley_counter = 0
+		energy = 0
 	}
 	break;
 	
