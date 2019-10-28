@@ -66,7 +66,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "noone",
             "varName": "target",
             "varType": 4
         },
@@ -139,6 +139,20 @@
             "value": "40",
             "varName": "hp",
             "varType": 1
+        },
+        {
+            "id": "270ef7d0-fd2a-4a1d-b78d-fc49592ead6c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "5",
+            "varName": "turn_speed",
+            "varType": 0
         }
     ],
     "solid": false,

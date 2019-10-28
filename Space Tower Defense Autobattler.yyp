@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "2bb46d15-83c1-4ce5-b60c-1e751be1a0f2",
+            "Value": {
+                "id": "41403dad-a9ca-4934-9767-8298e94b8b6d",
+                "resourcePath": "sprites\\s_energy_bar\\s_energy_bar.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "355e71a9-1ecd-44d2-9c41-ca6c10a03e56",
             "Value": {
                 "id": "45615d4e-0bf8-4984-a56a-415ab6352262",

@@ -1,7 +1,8 @@
 enum player_unit{
 	patrolling,
 	engaging,
-	destroyed
+	destroyed,
+	ultimate
 }
 
 state = player_unit.engaging
