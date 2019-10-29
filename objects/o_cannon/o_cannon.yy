@@ -163,6 +163,20 @@
             "value": "0",
             "varName": "ultimate_volley_counter",
             "varType": 1
+        },
+        {
+            "id": "cbb54bc9-dbe9-49d6-b7fd-cf087185c6f6",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "5",
+            "varName": "ultimate_volley_number_of_shots",
+            "varType": 1
         }
     ],
     "solid": false,

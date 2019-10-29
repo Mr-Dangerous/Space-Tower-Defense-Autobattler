@@ -45,20 +45,25 @@ switch(state){
 	break;
 	case player_unit.ultimate:
 	//Rapid volley fire
+	
 	if (!instance_exists(target)){
 		target = instance_nearest(x, y, o_enemy_unit)
 		if (distance_to_object(target) > range){
 			ultimate_volley_counter = 0
+			fire_counter = 0
 			state = player_unit.patrolling
 			exit;
 		}
 	}
+	_p_dir = point_direction(x, y, target.x, target.y)
+	direction = _p_dir
+	image_angle = _p_dir
 	if (fire_counter = fire_rate){
 		fire_counter = 90
 		var _projectile = instance_create_layer(x, y, "Instances", o_cannon_shot_player)
 		with(_projectile){
 			//assign the projectile some variable properties.
-			image_angle = other.image_angle
+			image_angle = other.direction
 			direction = other.direction
 			speed = 10
 			damage = 5
@@ -66,10 +71,11 @@ switch(state){
 		ultimate_volley_counter++
 		
 	}
-	if (ultimate_volley_counter = 5){
+	if (ultimate_volley_counter = ultimate_volley_number_of_shots){
 		state = player_unit.patrolling
 		ultimate_volley_counter = 0
 		energy = 0
+		fire_counter = 0
 	}
 	break;
 	

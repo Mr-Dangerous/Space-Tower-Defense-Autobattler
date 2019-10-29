@@ -1,6 +1,7 @@
 enum enemy{
 	approaching,
 	engaging,
+	attacking,
 	destroyed
 }
 state = enemy.approaching
