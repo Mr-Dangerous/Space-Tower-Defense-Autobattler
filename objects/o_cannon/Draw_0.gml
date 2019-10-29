@@ -6,6 +6,5 @@ if (max_energy - energy < 4){
 }
 draw_sprite(s_energy_bar, energy_bar_subimage, x, y + 16)
 
-if (object_exists(target)){
-	draw_sprite(s_energy_bar, 1, target.x, target.y,)
-}
+
+
