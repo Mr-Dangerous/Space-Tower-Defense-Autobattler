@@ -43,7 +43,7 @@ switch (state){
 		motion_set(direction, 0)
 		}
 	
-	if (fire_counter >= fire_rate){
+	if (fire_counter >= fire_rate and _distance_to_target <= range){
 		fire_counter = 0
 		
 		state = enemy.attacking
@@ -68,6 +68,7 @@ switch (state){
 	speed += acceleration_rate
 	if (reengage_counter = 0){
 		state = enemy.approaching
+		direction_changed = false
 	}
 	
 	break;

@@ -41,12 +41,27 @@ switch(state){
 	#region attacking
 	case player_unit.attacking:
 	var _projectile = instance_create_layer(x, y, "Instances", o_cannon_shot_player)
+	lead_target_multiplier = distance_to_object(target)/10
+	accuracy_factor_value = lead_target_multiplier/2
+	accuracy_factor = irandom_range(-accuracy_factor_value/2, accuracy_factor_value/2)
+	accuracy_roll = irandom(100)
+	if(accuracy_roll > accuracy){
+		accuracy_factor*=6
+		show_debug_message("miss")
+	} else {
+		accuracy_factor = 0
+	}
+	lead_target_x = lengthdir_x(target.speed*lead_target_multiplier+accuracy_factor, target.direction)
+	lead_target_y = lengthdir_y(target.speed*lead_target_multiplier+accuracy_factor, target.direction)
+	_p_dir = point_direction(x, y, target.x+lead_target_x, target.y+lead_target_y)
+	direction = _p_dir
+	image_angle = _p_dir
 		with(_projectile){
 			//assign the projectile some variable properties.
 			image_angle = other.image_angle
 			direction = other.direction
-			speed = 5
-			damage = 5
+			speed = other.projectile_speed
+			damage = other.projectile_damage
 		}
 		energy += energy_on_hit
 		state = player_unit.patrolling
@@ -72,7 +87,10 @@ switch(state){
 			exit;
 		}
 	}
-	_p_dir = point_direction(x, y, target.x, target.y)
+	
+	lead_target_x = lengthdir_x(target.speed * 5, target.direction)
+	lead_target_y = lengthdir_y(target.speed * 5, target.direction)
+	_p_dir = point_direction(x, y, target.x+lead_target_x, target.y+lead_target_y)
 	direction = _p_dir
 	image_angle = _p_dir
 	if (fire_counter = fire_rate){
@@ -82,8 +100,8 @@ switch(state){
 			//assign the projectile some variable properties.
 			image_angle = other.direction
 			direction = other.direction
-			speed = 10
-			damage = 5
+			speed = other.projectile_speed+3
+			damage = other.projectile_damage
 		}
 		ultimate_volley_counter++
 		

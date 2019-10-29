@@ -177,6 +177,48 @@
             "value": "5",
             "varName": "ultimate_volley_number_of_shots",
             "varType": 1
+        },
+        {
+            "id": "040f5b3c-aa4c-46fb-a2fa-1fad97170149",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "3",
+            "varName": "projectile_speed",
+            "varType": 0
+        },
+        {
+            "id": "bf8b71de-a704-47bb-aecb-a94506075bfc",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "5",
+            "varName": "projectile_damage",
+            "varType": 1
+        },
+        {
+            "id": "b2e51a05-a551-483e-ba38-9871d0ee51b2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "90",
+            "varName": "accuracy",
+            "varType": 0
         }
     ],
     "solid": false,

@@ -108,7 +108,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "74",
+            "value": "100",
             "varName": "fire_rate",
             "varType": 1
         },
