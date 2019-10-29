@@ -2,6 +2,7 @@ enum player_unit{
 	patrolling,
 	engaging,
 	destroyed,
+	attacking,
 	ultimate
 }
 
