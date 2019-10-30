@@ -135,14 +135,6 @@
             }
         },
         {
-            "Key": "3b4df754-6741-4b91-925c-2cc5e2ad02b5",
-            "Value": {
-                "id": "ca818559-598a-499c-ac35-795b34ae699d",
-                "resourcePath": "objects\\o_iron_interceptor_1\\o_iron_interceptor_1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "3d50de8d-1f56-4e5e-84bb-4a54a84f9236",
             "Value": {
                 "id": "454e40a7-0552-417f-911e-982f8c54fb09",
@@ -383,6 +375,14 @@
             }
         },
         {
+            "Key": "851755c8-8534-4021-9573-a4c617015554",
+            "Value": {
+                "id": "e8e72d19-0984-44d5-a41c-2f612f2e6c2a",
+                "resourcePath": "objects\\o_enemy_cannon\\o_enemy_cannon.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "85d423e8-2523-4b1f-b249-7f8b38bcd9f2",
             "Value": {
                 "id": "03968812-1b26-44be-88fc-8fb91b41c74a",
@@ -415,6 +415,14 @@
             }
         },
         {
+            "Key": "8f96860b-1403-43a3-842a-8cbd78241cda",
+            "Value": {
+                "id": "8235d55a-a89b-4ebb-9287-c7889556e3da",
+                "resourcePath": "objects\\o_iron_interceptor_1\\o_iron_interceptor_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "91114bf5-6d19-4f5d-88a9-0a0da7b3e82f",
             "Value": {
                 "id": "7114b5df-6b6b-4f99-af92-5527ad1bb42a",
@@ -436,6 +444,14 @@
                 "id": "f12ebd6d-307b-4d01-a171-8e6b82c90b3e",
                 "resourcePath": "objects\\o_projectile\\o_projectile.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "93cd9753-76a6-40da-a48a-22bad0fe132d",
+            "Value": {
+                "id": "554a2073-b612-464f-9ff1-c33f222e0a70",
+                "resourcePath": "scripts\\fire_ballistic_projectile\\fire_ballistic_projectile.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -752,7 +768,7 @@
         }
     ],
     "script_order": [
-        
+        "93cd9753-76a6-40da-a48a-22bad0fe132d"
     ],
     "tutorial": ""
 }

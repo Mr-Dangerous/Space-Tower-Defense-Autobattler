@@ -20,29 +20,7 @@ switch (state){
 		if (_distance_to_ship <= engagement_range){
 			if (fire_counter >= fire_rate){
 				fire_counter = 0
-				var projectile = instance_create_layer(x, y, "Projectile", o_cannon_shot_player)
-			
-				lead_target_multiplier = distance_to_object(ship_target)*projectile_speed*.2
-				accuracy_factor = 0
-				accuracy_roll = irandom(100)
-				if(accuracy_roll > accuracy){
-					accuracy_factor=6*lead_target_multiplier
-				if (accuracy_factor % 2 = 1){
-					accuracy_factor*= -1
-				}
-					show_debug_message("miss")
-				} else {
-					accuracy_factor = 0
-				}
-				lead_target_x = lengthdir_x(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
-				lead_target_y = lengthdir_y(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
-				_projectile_p_dir = point_direction(x, y, ship_target.x+lead_target_x, ship_target.y+lead_target_y)
-				with (projectile){
-					damage = other.projectile_damage
-					speed = other.projectile_speed
-					direction = other._projectile_p_dir
-					image_angle = other._projectile_p_dir
-				}
+				fire_ballistic_projectile()
 			}
 		}
 		if (!instance_exists(emplacement_target)){
@@ -62,13 +40,14 @@ switch (state){
 	if (instance_exists(emplacement_target)){
 		_p_dir = point_direction(x, y, emplacement_target.x, emplacement_target.y)
 	}
+	//if there is no emplacement, the corvette will atempt to engage the nearest ship.  Might change to fighter.
 	if (!instance_exists(emplacement_target) && instance_exists(ship_target)){
 		_p_dir = point_direction(x, y, ship_target.x, ship_target.y)
 	}
 	
-	//turn to face emplacement target
-	_angle_difference = angle_difference(image_angle, _p_dir)
-	image_angle += sign(_angle_difference)*turn_speed
+	//turn to face target
+	_angle_difference = angle_difference(image_angle, round(_p_dir))
+	image_angle -= sign(_angle_difference)*turn_speed
 	direction = image_angle
 	
 	//add speed
@@ -76,6 +55,7 @@ switch (state){
 	if (speed > max_speed){
 		speed = max_speed
 	}
+
 	break;
 	#endregion
 	
@@ -94,11 +74,26 @@ switch (state){
 			ship_target = new_enemy_ship
 		} else {
 		state = iron_corvette_1.approaching
+		exit;
 		}
 	}
+	//orbit the target
+	_p_dir = point_direction(x, y, ship_target.x, ship_target.y) - 90
+	if (image_angle != _p_dir){
+		_angle_difference = angle_difference(image_angle, _p_dir)
+		image_angle += sign(_angle_difference)*turn_speed
+		direction = image_angle
+	}
+	speed += acceleration_rate
+	if (speed > max_speed){
+		speed = max_speed
+	}
 	
-	
-	
+	if (fire_counter >= fire_rate && engagement_range >= distance_to_object(ship_target)){
+		fire_counter = 0
+		fire_ballistic_projectile()
+	}
+
 	
 	break;
 	#endregion
@@ -151,29 +146,7 @@ switch (state){
 	if (ship_target_exists){
 		if (fire_counter >= fire_rate && engagement_range >= distance_to_object(ship_target)){
 			fire_counter = 0
-			var projectile = instance_create_layer(x, y, "Projectile", o_cannon_shot_player)
-			
-			lead_target_multiplier = distance_to_object(ship_target)*projectile_speed*.2
-			accuracy_factor = 0
-			accuracy_roll = irandom(100)
-			if(accuracy_roll > accuracy){
-				accuracy_factor=6*lead_target_multiplier
-				if (accuracy_factor % 2 = 1){
-					accuracy_factor*= -1
-				}
-				show_debug_message("miss")
-			} else {
-				accuracy_factor = 0
-			}
-			lead_target_x = lengthdir_x(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
-			lead_target_y = lengthdir_y(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
-			_projectile_p_dir = point_direction(x, y, ship_target.x+lead_target_x, ship_target.y+lead_target_y)
-			with (projectile){
-				damage = other.projectile_damage
-				speed = other.projectile_speed
-				direction = other._projectile_p_dir
-				image_angle = other._projectile_p_dir
-			}
+			fire_ballistic_projectile()
 		}
 	}
 	
@@ -195,6 +168,11 @@ switch (state){
 if (fire_counter < fire_rate){
 	fire_counter++
 }
+
+if (speed < 0){
+	speed = 0
+}
+show_debug_message(torpedo_counter)
 
 #endregion
 

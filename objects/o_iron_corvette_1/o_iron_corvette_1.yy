@@ -27,7 +27,7 @@
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "f1d6dd9f-ecfc-44ea-8fe4-d4a660dd708d",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -192,7 +192,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "1000",
+            "value": "400",
             "varName": "torpedo_rate",
             "varType": 1
         },
@@ -237,6 +237,34 @@
             "value": "4",
             "varName": "projectile_speed",
             "varType": 1
+        },
+        {
+            "id": "63154c3c-856d-46fb-a5ff-f36476d03705",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "95",
+            "varName": "accuracy",
+            "varType": 1
+        },
+        {
+            "id": "04e9da0a-eea4-41e5-8ff6-c4e689cdad74",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "o_cannon_shot_player",
+            "varName": "projectile_type",
+            "varType": 5
         }
     ],
     "solid": false,
