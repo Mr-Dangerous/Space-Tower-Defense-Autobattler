@@ -62,13 +62,20 @@ switch (state){
 	
 	#region engaging with a ship
 	case iron_interceptor_1.engaging:
+	//set up the manuever counter
+	if (manuever_counter = 0){
+		manuever_counter = irandom_range(80, 120)
+	}
 	//check to see if the engaging ship has left ranged
+	
 	_ship_target_exists = instance_exists(ship_target)
 	if (!_ship_target_exists){
 		if (!is_escort){
 			state = iron_interceptor_1.escorting
+			manuever_counter = 0
 		} else {
 			state = iron_interceptor_1.approaching
+			manuever_counter = 0
 			exit;
 		}
 	}
@@ -88,26 +95,38 @@ switch (state){
 		}
 	}
 	//orbit the target
-	_p_dir = point_direction(x, y, ship_target.x, ship_target.y) - 90
+	_p_dir = point_direction(x, y, ship_target.x, ship_target.y)-90
+	manuever_counter--
+	
+	if (manuever_counter < 30){
+		_p_dir +=90
+	}
+	
 	if (image_angle != _p_dir){
 		_angle_difference = angle_difference(image_angle, _p_dir)
 		image_angle -= sign(_angle_difference)*turn_speed
-		direction = image_angle
+		
 	}
+	
+	direction = image_angle
 	speed += acceleration_rate
 	if (speed > max_speed){
 		speed = max_speed
 	}
 	
-	if (fire_counter >= fire_rate && weapon_range >= distance_to_object(ship_target)){
+		
+	if (fire_counter >= fire_rate and weapon_range >= _distance_to_target){
 		state = iron_interceptor_1.attacking
+		manuever_counter = 0
 	}
+	
 
 	
 	break;
 	#endregion
 	
 	#region attacking (uses vectors and turns to target, then goes back to engaging
+	case iron_interceptor_1.attacking:
 	_ship_target_exists = instance_exists(ship_target)
 	if (!_ship_target_exists){
 		if (!is_escort){
@@ -121,14 +140,20 @@ switch (state){
 	
 	if (image_angle != _p_dir){
 		_angle_difference = angle_difference(image_angle, _p_dir)
-		image_angle -= sign(_angle_difference)*turn_speed
+		image_angle -= sign(_angle_difference)*(turn_speed*2)
 		if (abs(_angle_difference) < 4) image_angle = _p_dir
 	}
 	if (image_angle = _p_dir){
 		//make this a burst shot later
-		fire_ballistic_projectile()
-		state = iron_interceptor_1.engaging
+		fire_counter++
+		if (fire_counter = fire_rate+10){
+			fire_counter = 0
+			fire_ballistic_projectile()
+			state = iron_interceptor_1.engaging
+		}
+		
 	}
+	break;
 
 	
 	#endregion
@@ -214,10 +239,70 @@ switch (state){
 	*/
 	#endregion
 	
+	#region Escorting
+	
+	case iron_interceptor_1.escorting:
+	
+	_p_dir = direction
+	ship_target = instance_nearest(x, y, o_enemy_ship)
+	_distance_to_escort = distance_to_object(escort_ship)
+	//return to the escort if too far
+	if (_distance_to_escort > 50){
+		_p_dir = point_direction(x, y, escort_ship.x, escort_ship.y)
+		speed += acceleration_rate
+	}
+	if (speed > max_speed){
+		speed = max_speed
+	}
+	if (image_angle != _p_dir){
+		
+		
+		
+	break;
+	
+	#endregion
+	
 	#region destroyed
 	case iron_interceptor_1.destroyed:
 	
 	break;
+	#endregion
+	
+	#region return from edge (when heading too close to the edge)
+	
+	case iron_interceptor_1.return_from_edge:
+		_p_dir = point_direction(x, y, 640, 384)
+		speed += acceleration_rate
+		if (speed > max_speed){
+			speed = max_speed
+		}
+		if (image_angle != _p_dir){
+			_angle_difference = angle_difference(image_angle, _p_dir)
+			image_angle -= sign(_angle_difference)*(turn_speed*2)
+			if (abs(_angle_difference) < 4){
+			image_angle = _p_dir
+			}
+		}	
+		if (image_angle = _p_dir){
+			return_counter++
+		}
+		
+		direction = image_angle
+		
+		if (return_counter = 50){
+			return_counter = 0
+			if (!is_escort){
+				state = iron_interceptor_1.approaching
+			} else {
+				state = iron_interceptor_1.escorting
+			}
+		}
+		
+	
+	
+	
+	break;
+	
 	#endregion
 }
 #endregion
@@ -231,6 +316,21 @@ if (fire_counter < fire_rate){
 if (speed < 0){
 	speed = 0
 }
+
+//check to see if out of bounds
+if (x > 636+318 || x < 318 || y > 42+636 || y < 42 && state != iron_interceptor_1.return_from_edge){
+	return_counter = 0
+	state = iron_interceptor_1.return_from_edge
+}
+
+//check to see if escort ship still exists
+if(!instance_exists(escort_ship)){
+	is_escort = false
+} else {
+	is_escort = true
+}
+ 
+
 
 
 #endregion

@@ -172,7 +172,6 @@ if (fire_counter < fire_rate){
 if (speed < 0){
 	speed = 0
 }
-show_debug_message(torpedo_counter)
 
 #endregion
 

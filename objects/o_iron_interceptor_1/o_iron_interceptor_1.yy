@@ -234,7 +234,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "True",
             "varName": "is_escort",
             "varType": 3
         },
@@ -279,6 +279,34 @@
             "value": "noone",
             "varName": "emplacement_target",
             "varType": 4
+        },
+        {
+            "id": "64b69bed-4e58-4821-af17-ca5a513e84e9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "return_counter",
+            "varType": 1
+        },
+        {
+            "id": "d28a16e7-151b-419a-9ee4-970a0321cf48",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "manuever_counter",
+            "varType": 1
         }
     ],
     "solid": false,
