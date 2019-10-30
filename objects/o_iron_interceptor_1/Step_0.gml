@@ -44,7 +44,7 @@ switch (state){
 	//turn to face target
 	if (image_angle != _p_dir){
 		_angle_difference = angle_difference(image_angle, _p_dir)
-		image_angle += sign(_angle_difference)*turn_speed
+		image_angle -= sign(_angle_difference)*turn_speed
 		if (abs(_angle_difference) < 4){
 			image_angle = _p_dir
 		}
@@ -73,7 +73,7 @@ switch (state){
 		}
 	}
 	_distance_to_target = distance_to_object(ship_target)
-	if (_distance_to_target < engagement_range){
+	if (_distance_to_target > engagement_range*1.2){
 		var new_enemy_ship = instance_nearest(x, y, o_enemy_ship)
 		if (distance_to_object(new_enemy_ship) < engagement_range){
 			ship_target = new_enemy_ship
@@ -91,7 +91,7 @@ switch (state){
 	_p_dir = point_direction(x, y, ship_target.x, ship_target.y) - 90
 	if (image_angle != _p_dir){
 		_angle_difference = angle_difference(image_angle, _p_dir)
-		image_angle += sign(_angle_difference)*turn_speed
+		image_angle -= sign(_angle_difference)*turn_speed
 		direction = image_angle
 	}
 	speed += acceleration_rate
@@ -100,16 +100,37 @@ switch (state){
 	}
 	
 	if (fire_counter >= fire_rate && weapon_range >= distance_to_object(ship_target)){
-		fire_counter = 0
-		fire_ballistic_projectile()
+		state = iron_interceptor_1.attacking
 	}
-		
-	
-	
-	
-	
+
 	
 	break;
+	#endregion
+	
+	#region attacking (uses vectors and turns to target, then goes back to engaging
+	_ship_target_exists = instance_exists(ship_target)
+	if (!_ship_target_exists){
+		if (!is_escort){
+			state = iron_interceptor_1.escorting
+		} else {
+			state = iron_interceptor_1.approaching
+			exit;
+		}
+	}
+	_p_dir = point_direction(x, y, ship_target.x, ship_target.y)
+	
+	if (image_angle != _p_dir){
+		_angle_difference = angle_difference(image_angle, _p_dir)
+		image_angle -= sign(_angle_difference)*turn_speed
+		if (abs(_angle_difference) < 4) image_angle = _p_dir
+	}
+	if (image_angle = _p_dir){
+		//make this a burst shot later
+		fire_ballistic_projectile()
+		state = iron_interceptor_1.engaging
+	}
+
+	
 	#endregion
 	
 	#region Bombarding an emplacement
