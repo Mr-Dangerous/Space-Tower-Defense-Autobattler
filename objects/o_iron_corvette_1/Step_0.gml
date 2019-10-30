@@ -14,11 +14,39 @@ switch (state){
 	ship_target = instance_nearest(x, y, o_enemy_ship)
 	
 	
-	//check to see if the corvette is in range of an enemy ship
+	//check to see if the corvette is in range of an enemy ship and fire, but also check to see if the ship is the only target
 	if (instance_exists(ship_target)){
 		var _distance_to_ship = distance_to_object(ship_target)
 		if (_distance_to_ship <= engagement_range){
-			state = iron_corvette_1.engaging 
+			if (fire_counter >= fire_rate){
+				fire_counter = 0
+				var projectile = instance_create_layer(x, y, "Projectile", o_cannon_shot_player)
+			
+				lead_target_multiplier = distance_to_object(ship_target)*projectile_speed*.2
+				accuracy_factor = 0
+				accuracy_roll = irandom(100)
+				if(accuracy_roll > accuracy){
+					accuracy_factor=6*lead_target_multiplier
+				if (accuracy_factor % 2 = 1){
+					accuracy_factor*= -1
+				}
+					show_debug_message("miss")
+				} else {
+					accuracy_factor = 0
+				}
+				lead_target_x = lengthdir_x(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
+				lead_target_y = lengthdir_y(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
+				_projectile_p_dir = point_direction(x, y, ship_target.x+lead_target_x, ship_target.y+lead_target_y)
+				with (projectile){
+					damage = other.projectile_damage
+					speed = other.projectile_speed
+					direction = other._projectile_p_dir
+					image_angle = other._projectile_p_dir
+				}
+			}
+		}
+		if (!instance_exists(emplacement_target)){
+			state = iron_corvette_1.engaging
 		}
 	}
 	//check to see if the corvette is in range of a bombard target
@@ -53,6 +81,24 @@ switch (state){
 	
 	#region engaging with a ship
 	case iron_corvette_1.engaging:
+	//check to see if the engaging ship has left range or if an emplacement has appeared
+	_ship_target_exists = instance_exists(ship_target)
+	if (!_ship_target_exists){
+		state = iron_corvette_1.approaching
+		exit;
+	}
+	_distance_to_target = distance_to_object(ship_target)
+	if (_distance_to_target < engagement_range){
+		var new_enemy_ship = instance_nearest(x, y, o_enemy_ship)
+		if (distance_to_object(new_enemy_ship) < engagement_range){
+			ship_target = new_enemy_ship
+		} else {
+		state = iron_corvette_1.approaching
+		}
+	}
+	
+	
+	
 	
 	break;
 	#endregion
@@ -103,16 +149,30 @@ switch (state){
 	
 	//shoot nearby ships
 	if (ship_target_exists){
-		fire_counter++
-		if (fire_counter >= fire_rate){
+		if (fire_counter >= fire_rate && engagement_range >= distance_to_object(ship_target)){
 			fire_counter = 0
 			var projectile = instance_create_layer(x, y, "Projectile", o_cannon_shot_player)
+			
+			lead_target_multiplier = distance_to_object(ship_target)*projectile_speed*.2
+			accuracy_factor = 0
+			accuracy_roll = irandom(100)
+			if(accuracy_roll > accuracy){
+				accuracy_factor=6*lead_target_multiplier
+				if (accuracy_factor % 2 = 1){
+					accuracy_factor*= -1
+				}
+				show_debug_message("miss")
+			} else {
+				accuracy_factor = 0
+			}
+			lead_target_x = lengthdir_x(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
+			lead_target_y = lengthdir_y(ship_target.speed*(lead_target_multiplier + accuracy_factor), ship_target.direction)
+			_projectile_p_dir = point_direction(x, y, ship_target.x+lead_target_x, ship_target.y+lead_target_y)
 			with (projectile){
 				damage = other.projectile_damage
 				speed = other.projectile_speed
-				_projectile_p_dir = point_direction(other.x, other.y, ship_target.x, ship_target.y)
-				direction = _projectile_p_dir
-				image_angle = _projectile_p_dir
+				direction = other._projectile_p_dir
+				image_angle = other._projectile_p_dir
 			}
 		}
 	}
@@ -131,6 +191,10 @@ switch (state){
 #endregion
 
 #region Post State machine checks
+
+if (fire_counter < fire_rate){
+	fire_counter++
+}
 
 #endregion
 
