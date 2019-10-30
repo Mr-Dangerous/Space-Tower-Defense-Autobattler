@@ -122,8 +122,8 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "25",
-            "varName": "missile_damage",
+            "value": "125",
+            "varName": "torpedo_damage",
             "varType": 1
         },
         {
@@ -150,7 +150,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "400",
+            "value": "200",
             "varName": "fire_rate",
             "varType": 1
         },
@@ -181,6 +181,34 @@
             "value": "100",
             "varName": "engagement_range",
             "varType": 1
+        },
+        {
+            "id": "8e30d2df-11f5-4309-bff7-e1e80407355f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1000",
+            "varName": "torpedo_rate",
+            "varType": 1
+        },
+        {
+            "id": "ed111d10-bdff-4ba5-bd79-9f028ca88fab",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "torpedo_counter",
+            "varType": 0
         }
     ],
     "solid": false,
