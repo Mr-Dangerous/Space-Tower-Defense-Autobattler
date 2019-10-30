@@ -122,7 +122,7 @@
             "Key": "355e71a9-1ecd-44d2-9c41-ca6c10a03e56",
             "Value": {
                 "id": "45615d4e-0bf8-4984-a56a-415ab6352262",
-                "resourcePath": "objects\\o_enemy_interceptor\\o_enemy_interceptor.yy",
+                "resourcePath": "objects\\o_enemy_interceptor_ph\\o_enemy_interceptor_ph.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -132,6 +132,22 @@
                 "id": "7663579f-7e84-4a1e-9078-332e37e685e7",
                 "resourcePath": "sprites\\s_iron_corvette_1\\s_iron_corvette_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3b4df754-6741-4b91-925c-2cc5e2ad02b5",
+            "Value": {
+                "id": "ca818559-598a-499c-ac35-795b34ae699d",
+                "resourcePath": "objects\\o_iron_interceptor_1\\o_iron_interceptor_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3d50de8d-1f56-4e5e-84bb-4a54a84f9236",
+            "Value": {
+                "id": "454e40a7-0552-417f-911e-982f8c54fb09",
+                "resourcePath": "objects\\o_enemy_corvette\\o_enemy_corvette.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -191,11 +207,35 @@
             }
         },
         {
+            "Key": "533d8de2-ffd6-4a8b-a567-d9766830c24f",
+            "Value": {
+                "id": "c61605b6-873b-4d6b-a2d3-24f0f4f84e6d",
+                "resourcePath": "objects\\o_enemy_fighter\\o_enemy_fighter.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5550336f-de53-45ab-9055-92406a3e3c55",
             "Value": {
                 "id": "87ef4c88-a831-4679-a20a-0bcbd96ef5c1",
                 "resourcePath": "views\\5550336f-de53-45ab-9055-92406a3e3c55.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "57752d66-ddb0-408d-b63d-b04bd10680f9",
+            "Value": {
+                "id": "72b3dc3d-78fa-4556-b32d-80341a38145b",
+                "resourcePath": "objects\\o_player_emplacement\\o_player_emplacement.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5a3b5fce-7d50-4f9a-90c4-324b99640dd0",
+            "Value": {
+                "id": "69088842-c343-49b7-9416-661a03b0dc06",
+                "resourcePath": "objects\\o_player_fighter\\o_player_fighter.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -223,6 +263,14 @@
             }
         },
         {
+            "Key": "5dc3b177-67db-405e-8ac3-104ffbd3fa59",
+            "Value": {
+                "id": "ffa9b8d1-0904-43a5-9130-a08f52729616",
+                "resourcePath": "objects\\o_torpedo_player\\o_torpedo_player.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5e8520fa-e02c-44b3-bd78-d3726d01ec14",
             "Value": {
                 "id": "d68cf24a-6948-4556-9288-77459629e948",
@@ -236,6 +284,22 @@
                 "id": "ce266d94-6dbd-4cdf-8bf7-9d6d843724ce",
                 "resourcePath": "sprites\\s_alien_fighter_1\\s_alien_fighter_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6582fa2b-c589-4ed6-9a92-b99d94d5324a",
+            "Value": {
+                "id": "0280415a-1e9a-4757-a6d7-0f3a4be3b18e",
+                "resourcePath": "sprites\\s_grid_box_64\\s_grid_box_64.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "65b4c33f-1888-4c60-97b5-a06756f4e08a",
+            "Value": {
+                "id": "238fa002-f30c-4e9c-bfde-58a903882eda",
+                "resourcePath": "views\\65b4c33f-1888-4c60-97b5-a06756f4e08a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -260,6 +324,14 @@
                 "id": "c504ed77-7168-45f1-abcd-d657e5ae89c8",
                 "resourcePath": "objects\\o_player_projectile\\o_player_projectile.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "79dd0d3b-bd32-4b41-b6d2-cc96886d3a8b",
+            "Value": {
+                "id": "768d6174-f17d-4b19-b356-f47fc07b01ef",
+                "resourcePath": "sprites\\s_iron_fighter_1_resized\\s_iron_fighter_1_resized.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -295,11 +367,27 @@
             }
         },
         {
+            "Key": "831522c6-2dac-4507-a762-ca9ac15be58e",
+            "Value": {
+                "id": "2da9ae0a-8793-4556-810c-301562aa6dc0",
+                "resourcePath": "objects\\o_player_ship\\o_player_ship.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "83ffb4de-115f-42f1-aabd-db29cfa5071c",
             "Value": {
                 "id": "68757641-c568-4101-baf8-b02617925b69",
                 "resourcePath": "views\\83ffb4de-115f-42f1-aabd-db29cfa5071c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "85d423e8-2523-4b1f-b249-7f8b38bcd9f2",
+            "Value": {
+                "id": "03968812-1b26-44be-88fc-8fb91b41c74a",
+                "resourcePath": "objects\\o_enemy_ship\\o_enemy_ship.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -330,7 +418,7 @@
             "Key": "91114bf5-6d19-4f5d-88a9-0a0da7b3e82f",
             "Value": {
                 "id": "7114b5df-6b6b-4f99-af92-5527ad1bb42a",
-                "resourcePath": "sprites\\s_iron_interceptor_1\\s_iron_interceptor_1.yy",
+                "resourcePath": "sprites\\s_iron_interceptor_1_resized\\s_iron_interceptor_1_resized.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -423,11 +511,35 @@
             }
         },
         {
+            "Key": "b892c837-3fa5-4fab-a3a0-ed37c2ad878a",
+            "Value": {
+                "id": "c214cecd-7482-4eb3-a864-6d92fcce980c",
+                "resourcePath": "objects\\o_enemy_emplacement\\o_enemy_emplacement.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "bb0ecf67-80cf-4dd0-92cb-86093aadccf1",
             "Value": {
                 "id": "7da8dbc5-8dba-4d06-95ca-b49c2f50019c",
                 "resourcePath": "views\\bb0ecf67-80cf-4dd0-92cb-86093aadccf1.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bbb094b4-82c3-4043-9285-95ae948d73a8",
+            "Value": {
+                "id": "094baafc-ebf9-425d-b3d7-781b571a9658",
+                "resourcePath": "sprites\\s_iron_corvette_1_resized\\s_iron_corvette_1_resized.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bee9d98a-e631-4685-b169-4aa9a3025427",
+            "Value": {
+                "id": "c80cfe8f-32d4-4ce0-b068-b5c465c24468",
+                "resourcePath": "objects\\o_player_interceptor\\o_player_interceptor.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -503,6 +615,14 @@
             }
         },
         {
+            "Key": "cd3056d4-9389-4b28-b0d2-16f29fc25e73",
+            "Value": {
+                "id": "786f4ed6-565f-432e-9232-80ec826c8523",
+                "resourcePath": "objects\\o_enemy_interceptor\\o_enemy_interceptor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d1341566-07f6-4b3b-9503-188b2d11bb80",
             "Value": {
                 "id": "97dc9e2b-c3cc-4de5-a1c0-9eeaa9d9a375",
@@ -543,6 +663,14 @@
             }
         },
         {
+            "Key": "e23c35ce-cd8a-4634-b252-5d6c89c7be39",
+            "Value": {
+                "id": "60f51b17-8a64-4615-a093-73f4167f4e51",
+                "resourcePath": "sprites\\s_missile_ph\\s_missile_ph.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ebdebddd-e1a1-4def-a651-247b511e981a",
             "Value": {
                 "id": "4e470361-6ec8-4eb7-a7b5-ffdefe043f6d",
@@ -572,6 +700,22 @@
                 "id": "081be2f9-6e60-4f02-9fd9-c1ecbc280434",
                 "resourcePath": "views\\f1c9c610-7b20-4117-a31b-a00c07d772c6.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f1d6dd9f-ecfc-44ea-8fe4-d4a660dd708d",
+            "Value": {
+                "id": "5b09c929-5388-4e61-ad9c-d9d8e4db008b",
+                "resourcePath": "objects\\o_player_corvette\\o_player_corvette.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f60db179-a3c3-4dda-94ef-573fd7f8b6ce",
+            "Value": {
+                "id": "ad6b4e02-0ec5-43c7-bfba-fc1ed2c0fbdb",
+                "resourcePath": "objects\\o_iron_corvette\\o_iron_corvette.yy",
+                "resourceType": "GMObject"
             }
         },
         {
