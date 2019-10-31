@@ -92,7 +92,19 @@ if ((camera_y + camera_speed_y) < 0 or (camera_y + camera_speed_y) > room_height
 	camera_speed_y = 0
 }
 camera_set_view_pos(view_camera[0], camera_x+camera_speed_x, camera_y+camera_speed_y)
+//parralax backgrounds
+var _cam_x = camera_get_view_x(view_camera[0])
+var _cam_y = camera_get_view_y(view_camera[0])
 
+//cameras
+
+
+layer_x("Background", _cam_x * .95)
+layer_y("Background", _cam_y * .95)
+
+
+
+//end of step resets
 fast_camera = false
 max_camera_speed = 4
 
