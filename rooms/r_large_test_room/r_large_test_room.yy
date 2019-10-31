@@ -97,7 +97,7 @@
             "visible": true,
             "vspeed": 0,
             "vtiled": false,
-            "x": 1000,
+            "x": 0,
             "y": 0
         }
     ],
