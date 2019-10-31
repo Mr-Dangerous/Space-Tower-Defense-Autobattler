@@ -9,6 +9,9 @@ switch (state){
 	
 	//find the nearest enemy ship, once state is changed, this target will not change.
 	ship_target = instance_nearest(x, y, o_enemy_ship)
+	if (instance_exists(target_override)){
+		ship_target = target_override
+	}
 	//find the nearest emplacement.  Emplacements aren't going to be focused by interceptors
 	emplacement_target = instance_nearest(x, y, o_enemy_emplacement)
 	
@@ -19,6 +22,7 @@ switch (state){
 		if (_distance_to_ship <= engagement_range){
 			//pursue the ship and begin to fight
 			state = iron_interceptor_1.engaging
+			target_override = noone
 			exit;
 		}
 		
@@ -28,6 +32,7 @@ switch (state){
 		var _distance_to_emplacement = distance_to_object(emplacement_target)
 		if (_distance_to_emplacement <= engagement_range){
 			state = iron_interceptor_1.engaging//may later change to a bombard or strafe
+			target_override = noone
 		}
 	}
 	
@@ -53,9 +58,6 @@ switch (state){
 	
 	//add speed
 	speed += acceleration_rate
-	if (speed > max_speed){
-		speed = max_speed
-	}
 
 	break;
 	#endregion
@@ -110,10 +112,6 @@ switch (state){
 	
 	direction = image_angle
 	speed += acceleration_rate
-	if (speed > max_speed){
-		speed = max_speed
-	}
-	
 		
 	if (fire_counter >= fire_rate and weapon_range >= _distance_to_target){
 		state = iron_interceptor_1.attacking
@@ -244,17 +242,39 @@ switch (state){
 	case iron_interceptor_1.escorting:
 	
 	_p_dir = direction
-	ship_target = instance_nearest(x, y, o_enemy_ship)
+	escort_ship_target = instance_nearest(escort_ship.x, escort_ship.y, o_enemy_ship)
 	_distance_to_escort = distance_to_object(escort_ship)
+	
 	//return to the escort if too far
 	if (_distance_to_escort > 50){
 		_p_dir = point_direction(x, y, escort_ship.x, escort_ship.y)
-		speed += acceleration_rate
+		
 	}
-	if (speed > max_speed){
-		speed = max_speed
+	//engage an enemy near the escorted ship
+	if (distance_to_object(escort_ship_target) < escort_ship.engagement_range * 2){
+		state = iron_interceptor_1.approaching
+		ship_target = escort_ship_target
+		target_override = escort_ship_target		
+		
 	}
+	//travel with the escort
+	new_x = lengthdir_x(20*escort_number, escort_ship.x)
+	new_y = lengthdir_y(20*escort_number, escort_ship.y)
+	_p_dir = point_direction(x, y, escort_ship.x + new_x, escort_ship.y + new_y)
+	
+	//face travel direction
 	if (image_angle != _p_dir){
+		_angle_difference = angle_difference(image_angle, _p_dir)
+		image_angle -= sign(_angle_difference)*turn_speed
+		if (abs(_angle_difference) < 4){
+			image_angle = _p_dir
+		}
+		direction = image_angle
+	}
+	speed += acceleration_rate
+	
+	
+	
 		
 		
 		
@@ -273,9 +293,7 @@ switch (state){
 	case iron_interceptor_1.return_from_edge:
 		_p_dir = point_direction(x, y, 640, 384)
 		speed += acceleration_rate
-		if (speed > max_speed){
-			speed = max_speed
-		}
+		
 		if (image_angle != _p_dir){
 			_angle_difference = angle_difference(image_angle, _p_dir)
 			image_angle -= sign(_angle_difference)*(turn_speed*2)
@@ -312,7 +330,10 @@ switch (state){
 if (fire_counter < fire_rate){
 	fire_counter++
 }
-
+//speed minimum annd maximum limits
+if (speed > max_speed){
+		speed = max_speed
+	}
 if (speed < 0){
 	speed = 0
 }

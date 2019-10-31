@@ -307,6 +307,34 @@
             "value": "0",
             "varName": "manuever_counter",
             "varType": 1
+        },
+        {
+            "id": "fc292976-2e66-4157-87a9-521cb44650c5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "target_override",
+            "varType": 4
+        },
+        {
+            "id": "087b9d5f-53d3-4748-87f6-af89ba9843f4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1",
+            "varName": "escort_number",
+            "varType": 1
         }
     ],
     "solid": false,
