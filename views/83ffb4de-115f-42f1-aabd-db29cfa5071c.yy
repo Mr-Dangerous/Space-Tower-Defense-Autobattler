@@ -11,7 +11,7 @@
         "ebdebddd-e1a1-4def-a651-247b511e981a",
         "c6df4839-d056-4a05-8515-e206d826ad00",
         "85f7cb73-224a-471d-b2bf-4f8d4f32c7e6",
-        "bb417c81-70cd-4fa9-9f72-bb3973bdfa1b"
+        "4de71744-0692-4aeb-8f83-654b0d72b64f"
     ],
     "filterType": "GMSprite",
     "folderName": "alien_ships",

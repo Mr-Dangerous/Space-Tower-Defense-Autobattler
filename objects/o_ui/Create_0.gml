@@ -9,3 +9,7 @@ a_zoom_level[5] = 1.6
 
 zoom = array_get(a_zoom_level, zoom_level)
 
+//cookie clicker script
+if (cps!=0){
+	cookie_script(cps)
+}

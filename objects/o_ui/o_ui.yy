@@ -125,6 +125,20 @@
             "value": "5",
             "varName": "max_zoom_level",
             "varType": 1
+        },
+        {
+            "id": "180a075e-c311-4f24-aae8-0f4a90d77355",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "6.49",
+            "varName": "cps",
+            "varType": 0
         }
     ],
     "solid": false,
