@@ -24,6 +24,28 @@ switch (state){
 			direction = image_angle
 			speed = 0
 		}
+		if (!locked_formation){
+			if (distance_to_point(_formation_point_x, _formation_point_y > 500 and arrival_counter = 0)){
+				arrival_counter = 20
+			}
+			if (arrival_counter ==20){
+				speed += acceleration_rate
+				limit_speed()
+				face_target(point_direction(x, y, _formation_point_x, _formation_point_y))
+				direction = image_angle
+				
+			}
+			if (distance_to_point(_formation_point_x,_formation_point_y < 25)){
+				speed -= acceleration_rate * .2
+				arrival_counter--
+				if (arrival_counter = 0){
+					speed = 0
+				}
+				limit_speed()
+				face_target(point_direction(x, y, _formation_point_x, _formation_point_y))
+				direction = image_angle
+			}
+		}
 			
 			
 	break;

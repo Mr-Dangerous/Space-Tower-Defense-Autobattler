@@ -599,6 +599,14 @@
             }
         },
         {
+            "Key": "a7092aeb-b3ee-45c1-873f-23ef3ee4c2d3",
+            "Value": {
+                "id": "8041717f-9669-40a0-a97a-4816308929ee",
+                "resourcePath": "scripts\\limit_speed\\limit_speed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a8a3a8d4-a8bb-4ad8-9b8b-a63d94e2d52e",
             "Value": {
                 "id": "bd9b7d9c-8353-406a-91c9-8aeccd7876dd",
@@ -914,7 +922,8 @@
     "script_order": [
         "93cd9753-76a6-40da-a48a-22bad0fe132d",
         "1865c79a-ca52-490d-b11c-427171b5877b",
-        "2401959c-e0a3-44ec-81af-f9f61cdd7016"
+        "2401959c-e0a3-44ec-81af-f9f61cdd7016",
+        "a7092aeb-b3ee-45c1-873f-23ef3ee4c2d3"
     ],
     "tutorial": ""
 }

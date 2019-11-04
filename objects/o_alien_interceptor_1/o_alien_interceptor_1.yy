@@ -206,9 +206,23 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "True",
+            "value": "False",
             "varName": "locked_formation",
             "varType": 3
+        },
+        {
+            "id": "5e8a293f-a71c-4a84-86b3-85486c2f5d26",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "arrival_counter",
+            "varType": 1
         }
     ],
     "solid": false,

@@ -32,6 +32,7 @@ with(ship_4){
 	formation_direction_offset = 45
 }
 with(ship_5){
+	squad_object = other
 	formation_direction_offset = -45
 }
 
