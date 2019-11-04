@@ -25,3 +25,14 @@ switch(state){
 	break;
 
 }
+
+//for testing purposes only
+if (turncounter = 0){
+	turncounter = 1000
+	new_direction = irandom(360)
+}
+if (image_angle != new_direction){
+	face_target(new_direction)
+	direction = image_angle
+}
+turncounter --

@@ -90,7 +90,7 @@
             "Key": "1865c79a-ca52-490d-b11c-427171b5877b",
             "Value": {
                 "id": "e97c2f81-ccb0-4a79-9d20-9642b41cedda",
-                "resourcePath": "scripts\\face_opponent\\face_opponent.yy",
+                "resourcePath": "scripts\\face_target\\face_target.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -495,6 +495,14 @@
             }
         },
         {
+            "Key": "892843d4-c6e4-4646-81ea-a82c3b5bd537",
+            "Value": {
+                "id": "a28056f5-74a3-47f9-9878-08437e1ed0f2",
+                "resourcePath": "objects\\o_ship\\o_ship.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8f96860b-1403-43a3-842a-8cbd78241cda",
             "Value": {
                 "id": "8235d55a-a89b-4ebb-9287-c7889556e3da",
@@ -804,6 +812,14 @@
                 "id": "6d2936e6-9839-403c-9f4f-3fe5efd2449d",
                 "resourcePath": "rooms\\r_large_test_room\\r_large_test_room.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "e2205ba8-5629-495a-bea5-79294a8c8938",
+            "Value": {
+                "id": "99d21520-a814-4c8d-ac29-daf71cb4ed17",
+                "resourcePath": "objects\\o_emplacement\\o_emplacement.yy",
+                "resourceType": "GMObject"
             }
         },
         {

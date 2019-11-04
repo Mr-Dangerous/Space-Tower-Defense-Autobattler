@@ -127,7 +127,7 @@
             "varType": 1
         },
         {
-            "id": "b3835245-0baf-4bf5-9e75-3834b0751925",
+            "id": "ed8a63ec-8c7f-40c6-8b77-8e5636ba927c",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -137,8 +137,36 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "variable_name",
+            "varName": "turncounter",
+            "varType": 1
+        },
+        {
+            "id": "7a214ff1-2772-4eb4-b315-a89fc841dc18",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "new_direction",
             "varType": 0
+        },
+        {
+            "id": "59adc8a0-8249-49c5-b32c-aefe126a6cda",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1",
+            "varName": "turn_speed",
+            "varType": 1
         }
     ],
     "solid": false,
