@@ -1,6 +1,6 @@
 //@param target_direction
 
-//only turns the sprite, does not change the actual direction (this is too allow for the
+//only turns the sprite, does not change the actual direction (this is to allow for the
 //ships to travel in a vector, turn, and shoot.
 var _point_direction = argument0
 
