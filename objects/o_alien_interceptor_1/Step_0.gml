@@ -30,23 +30,24 @@ switch (state){
 		
 			
 	}
-	if (_distance_to_formation_point < 4){
+	if (_distance_to_formation_point <= 1){
 		//fully locked relative to the formation.
 		//remeber when leaving to give the ships the same speed as the squad object.
 		x = squad_object.x + _formation_point_x
 		y = squad_object.y + _formation_point_y
 		if (speed != 0){
-			speed = 0
-			//speed -= acceleration_rate
+			speed -= acceleration_rate
 			if (speed < 0){
 				speed = 0
 			}
 		}
+		if(image_angle != squad_object.direction){
+			face_target(squad_object.direction)
+		}
+		direction = image_angle
 	}
-	if(image_angle != squad_object.direction){
-		face_target(squad_object.direction)
-	}
-	direction = image_angle
+	
+	
 			
 		
 		/*
