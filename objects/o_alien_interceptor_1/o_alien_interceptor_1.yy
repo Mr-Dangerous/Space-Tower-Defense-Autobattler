@@ -223,6 +223,20 @@
             "value": "0",
             "varName": "arrival_counter",
             "varType": 1
+        },
+        {
+            "id": "0454bc5e-de34-492a-b913-28f9f24231ab",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "formation_locked",
+            "varType": 0
         }
     ],
     "solid": false,

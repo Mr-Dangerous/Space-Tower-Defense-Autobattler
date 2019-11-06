@@ -13,61 +13,63 @@ if (!instance_exists(ship_target) and target_acquired = false){
 switch (state){
 #region alien_interceptor_1.idle
 	case alien_interceptor_1.idle:
+	//save and set new movement variables.  might want to just make it a new variable.
+	turn_speed_previous = turn_speed
+	turn_speed = turn_speed/2
+	
+	
 	_formation_direction_offset_calculated = squad_object.direction + formation_direction_offset
 	if (_formation_direction_offset_calculated < 0){
 		_formation_direction_offset_calculated += 360
 	}
-	_formation_point_x = round(lengthdir_x(formation_distance_offset, _formation_direction_offset_calculated))
-	_formation_point_y = round(lengthdir_y(formation_distance_offset, _formation_direction_offset_calculated))
+	_formation_point_x = (round(lengthdir_x(formation_distance_offset, _formation_direction_offset_calculated)) + squad_object.x)
+	_formation_point_y = (round(lengthdir_y(formation_distance_offset, _formation_direction_offset_calculated)) + squad_object.y)
 		
-	_distance_to_formation_point = distance_to_point(squad_object.x + _formation_point_x, squad_object.y + _formation_point_y)
-	if (_distance_to_formation_point >= 4){
-		_direction_to_formation_point = point_direction(x, y, squad_object.x + _formation_point_x, squad_object.y+_formation_point_y)
+	_distance_to_formation_point = distance_to_point(_formation_point_x, _formation_point_y)
+	
+	if (_distance_to_formation_point > 0){
+		_direction_to_formation_point = point_direction(x, y,  _formation_point_x, _formation_point_y)
 		face_target(_direction_to_formation_point)
 		direction = image_angle
 		speed += acceleration_rate
 		limit_speed()
-		
+		if (formation_locked){
+			speed = squad_object.speed
+			}
 			
 	}
-	if (_distance_to_formation_point <= 1){
-		//fully locked relative to the formation.
-		//remeber when leaving to give the ships the same speed as the squad object.
-		x = squad_object.x + _formation_point_x
-		y = squad_object.y + _formation_point_y
-		if (speed != 0){
-			speed -= acceleration_rate
-			if (speed < 0){
-				speed = 0
-			}
-		}
+	if (_distance_to_formation_point = 0){
+		
+		x = _formation_point_x
+		y = _formation_point_y
+		speed = 0
+		
 		if(image_angle != squad_object.direction){
 			face_target(squad_object.direction)
 		}
 		direction = image_angle
 	}
 	
-	
-			
-		
-		/*
-		if (!locked_formation){
-			_direction_to_formation_point = point_direction(x, y, squad_object.x+_formation_point_x, squad_object.y+_formation_point_y)
-			face_target(_direction_to_formation_point)
-			direction = image_angle
-			speed += acceleration_rate
-			limit_speed()
-			_distance_to_point = distance_to_point(squad_object.x + _formation_point_x, squad_object.y + _formation_point_y)
-			if(_distance_to_point < 8){
-				locked_formation = true
-			}
-		}
-		*/
+	//reset movement variables
+	turn_speed = turn_speed_previous
 			
 			
 	break;
 
 #endregion
+/*General notes before programming this section
+approaching state is used when a valid target is acquired in range of the squad.
+
+First, each ship in the squad is assigned a target via a targeting tree.  Interceptors 
+focus fighters or interceptors, then focus other types of units, and focus emplacements
+after all other ships are destroyed.
+
+When all targers in range of the squad object are destroyed, the ships return to idle state.
+
+*/
+	case alien_interceptor_1.approaching:
+		
+	break;
 
 }
 #endregion

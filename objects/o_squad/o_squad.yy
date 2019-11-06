@@ -167,6 +167,20 @@
             "value": "1",
             "varName": "turn_speed",
             "varType": 1
+        },
+        {
+            "id": "ebe4f2ac-96bc-497a-8ef9-eaa62f40c0ff",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "engagement_range",
+            "varType": 1
         }
     ],
     "solid": false,
