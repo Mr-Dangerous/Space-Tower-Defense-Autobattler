@@ -551,6 +551,14 @@
             }
         },
         {
+            "Key": "9444d265-a5d2-4ad9-b0c6-6b43390ff501",
+            "Value": {
+                "id": "c07dd8e1-3475-4a9b-86af-1386d24465f4",
+                "resourcePath": "objects\\o_enemy_squad\\o_enemy_squad.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "98b64b3a-99eb-4d1b-90c9-3a9880a83a7e",
             "Value": {
                 "id": "b18d69fd-f089-4429-893b-01237de4005a",
@@ -666,7 +674,7 @@
             "Key": "ba0790fb-5806-4910-8166-7fa8c7c85659",
             "Value": {
                 "id": "b6fabf1d-16f7-4a8b-9b5f-2f375ee5e9eb",
-                "resourcePath": "objects\\o_squad\\o_squad.yy",
+                "resourcePath": "objects\\o_player_squad\\o_player_squad.yy",
                 "resourceType": "GMObject"
             }
         },
