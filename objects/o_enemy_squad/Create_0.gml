@@ -1,8 +1,9 @@
-enum squad{
+/*
+enum enemy_squad{
 	defend_sector
 }
 
-state = squad.defend_sector
+state = enemy_squad.defend_sector
 
 //these ships will be assigned by a squad building object in the card game
 //for now, they will be instances spawned
@@ -39,3 +40,4 @@ with(ship_5){
 
 //for testing purposes only
 speed = .3
+*/

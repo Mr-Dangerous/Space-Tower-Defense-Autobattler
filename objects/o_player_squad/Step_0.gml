@@ -58,7 +58,7 @@ switch(state){
 
 		
 	
-	if (instance_exists(_nearest_squad)){
+	if (instance_exists(nearest_squad)){
 		//Squad moves towards the target if it's close enough (in the sector later on)
 		var _target_distance = distance_to_object(nearest_squad)
 		if (_target_distance < 500){

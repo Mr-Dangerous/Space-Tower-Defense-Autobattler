@@ -181,6 +181,34 @@
             "value": "0",
             "varName": "engagement_range",
             "varType": 1
+        },
+        {
+            "id": "313e0e63-e4cc-4d8d-bfe1-cf3fc5e317a8",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "enemy_focus_counter",
+            "varType": 1
+        },
+        {
+            "id": "e1db5a51-2235-463d-ba4d-946c99fd8791",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "nearest_squad",
+            "varType": 4
         }
     ],
     "solid": false,

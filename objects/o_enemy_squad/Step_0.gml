@@ -1,3 +1,4 @@
+/*
 //pre state machine changes
 
 
@@ -72,3 +73,4 @@ if (image_angle != new_direction){
 	direction = image_angle
 }
 turncounter --
+*/
