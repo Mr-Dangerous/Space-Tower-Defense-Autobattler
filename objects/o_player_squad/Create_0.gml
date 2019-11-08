@@ -1,5 +1,6 @@
 enum squad{
-	defend_sector
+	defend_sector,
+	engage_enemy
 }
 
 state = squad.defend_sector

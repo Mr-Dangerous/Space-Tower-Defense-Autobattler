@@ -237,6 +237,20 @@
             "value": "0",
             "varName": "formation_locked",
             "varType": 0
+        },
+        {
+            "id": "b7305bb4-4705-4fc4-a71d-f183bc6ab1d8",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "targeted_squad",
+            "varType": 4
         }
     ],
     "solid": false,

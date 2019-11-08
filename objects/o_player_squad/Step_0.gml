@@ -2,13 +2,10 @@
 
 
 switch(state){
+	#region squad.defend_sector
 	case squad.defend_sector:
 	
-	if (enemy_focus_counter = 0){
-		nearest_squad = instance_nearest(x,y, o_enemy_squad)
-	}
-	
-	
+	nearest_squad = instance_nearest(x,y, o_enemy_squad)
 	
 	
 	#region unused code
@@ -60,26 +57,54 @@ switch(state){
 	
 	if (instance_exists(nearest_squad)){
 		//Squad moves towards the target if it's close enough (in the sector later on)
+		//might look like if(nearest_squad.sector = sector)
 		var _target_distance = distance_to_object(nearest_squad)
 		if (_target_distance < 500){
 			//stay focused on one target and retarget once every second if another squad is close
-			if (enemy_focus_counter = 0){
-				enemy_focus_counter = 60
-			}
+			state = squad.engage_enemy
 			
-			with (ship_1){
-				
+			if (instance_exists(ship_1)){
+				with (ship_1){
+					target_acquired = true
+					targeted_squad = nearest_squad
+				}
 			}
-			with(ship_2){
-				//assign
+			if (instance_exists(ship_2)){
+				with (ship_2){
+					target_acquired = true
+					targeted_squad = nearest_squad
+				}
 			}
-			with(ship_3){
-				//assign
+			if (instance_exists(ship_3)){
+				with (ship_3){
+					target_acquired = true
+					targeted_squad = nearest_squad
+				}
+			}
+			if (instance_exists(ship_4)){
+				with (ship_4){
+					target_acquired = true
+					targeted_squad = nearest_squad
+				}
+			}
+			if (instance_exists(ship_5)){
+				with (ship_5){
+					target_acquired = true
+					targeted_squad = nearest_squad
+				}
 			}
 		}
 		
 	}
 	break;
+	#endregion
+	
+	
+	#region engage_enemy
+	case squad.engage_enemy:
+	
+	break;
+	#endregion
 
 }
 

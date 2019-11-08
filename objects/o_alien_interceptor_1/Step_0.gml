@@ -1,13 +1,17 @@
-//Pre state machine checks
-/*
-if (!instance_exists(ship_target) and target_acquired = false){
-	state = alien_interceptor_1.idle
-	target_acquired = false
-} else {
-	state = alien_interceptor_1.approaching
-	target_acquired = true
-}
+
+/*========================================
+Pre state machine checks
+
+This region is for variables that the commanding squad object uses to change the state
+of the ships.  
+
 */
+if (target_acquired = true){
+	state = alien_interceptor_1.approaching
+	target_acquired = false
+	ship_target
+}
+	
 
 #region State Machine
 switch (state){
@@ -68,7 +72,34 @@ When all targers in range of the squad object are destroyed, the ships return to
 
 */
 	case alien_interceptor_1.approaching:
+		//find the appropriate ship target
 		
+		if (!instance_exists(ship_target)){
+			//find new target
+			enemy_ship_list = ds_list_create()
+			with(targeted_squad){
+				if (instance_exists(ship_1)){
+					ds_list_add(other.enemy_ship_list, ship_1)
+				}
+				if (instance_exists(ship_2)){
+					ds_list_add(other.enemy_ship_list, ship_2)
+				}
+				if (instance_exists(ship_3)){
+					ds_list_add(other.enemy_ship_list, ship_3)
+				}
+				if (instance_exists(ship_4)){
+					ds_list_add(other.enemy_ship_list, ship_4)
+				}
+				if (instance_exists(ship_5)){
+					ds_list_add(other.enemy_ship_list, ship_5)
+				}
+			}
+			enemy_ship_list_size = 
+			
+						
+			
+			
+		}
 	break;
 
 }
