@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "0b3526ab-600e-4823-a561-37f153241d29",
+            "Value": {
+                "id": "ce14d369-5c22-4172-a9a8-8873ccde91cc",
+                "resourcePath": "sprites\\bio_ball\\bio_ball.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0ec30568-7290-4fb2-bd8f-4fca11442d01",
             "Value": {
                 "id": "c46129c5-b070-4a23-afd4-24532b34becf",
@@ -391,6 +399,14 @@
             }
         },
         {
+            "Key": "712126ba-a536-4b4e-a402-545b48a0c37b",
+            "Value": {
+                "id": "4125e975-3d1b-494d-9ba2-257b29cae540",
+                "resourcePath": "sprites\\s_alien_interceptor_1_resized\\s_alien_interceptor_1_resized.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "72d942dd-7f24-4b7b-87f8-d686def8ef22",
             "Value": {
                 "id": "c504ed77-7168-45f1-abcd-d657e5ae89c8",
@@ -468,6 +484,14 @@
                 "id": "e8e72d19-0984-44d5-a41c-2f612f2e6c2a",
                 "resourcePath": "objects\\o_enemy_cannon\\o_enemy_cannon.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "852dcdfa-c5d5-483f-b812-ec400b0fc787",
+            "Value": {
+                "id": "6cf63ac5-79fb-462d-8cb7-95088752518d",
+                "resourcePath": "sprites\\bio_ball_resized\\bio_ball_resized.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
