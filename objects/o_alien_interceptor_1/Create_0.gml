@@ -2,7 +2,8 @@ enum alien_interceptor_1 {
 	idle,
 	approaching,
 	engaging,
-	
+	slide_attack,
+	straight_on_attack,
 	returning
 }
 

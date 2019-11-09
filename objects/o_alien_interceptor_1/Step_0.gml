@@ -192,8 +192,10 @@ When all targers in range of the squad object are destroyed, the ships return to
 				state = alien_interceptor_1.engaging
 				//the exact state will be determined by comparing the current trajectory of both
 				//just nto right now
-				combat_state = alien_interceptor_1_combat_state.orbiting
+				combat_state = alien_interceptor_1_combat_state.orbiting_clockwise
 			}
+			
+			
 			
 		}
 		
@@ -221,16 +223,95 @@ When all targers in range of the squad object are destroyed, the ships return to
 			_lead_target_x = ship_target.x + lengthdir_x((_target_speed * accuracy_factor) * _projectile_flight_time, _target_direction)
 			_lead_target_y = ship_target.y + lengthdir_y((_target_speed * accuracy_factor) * _projectile_flight_time, _target_direction)
 			
-			 
+			 //execute behavior based on the combat substate
 			switch(combat_state){
 				case none:
 				
 				break;
+				#region orbiting
+				case alien_interceptor_1_combat_state.orbiting_clockwise:
+				_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
+				_tangent_direction = _direction_from_target - 90
+				if (_tangent_direction < 0){
+					_tangent_direction += 359
+				}
+				face_target(_tangent_direction)
+				direction = image_angle
+				speed += acceleration_rate
+				limit_speed()
 				
-				case alien_interceptor_1_combat_state.orbiting:
+				//set up the attack... this might need to become a script
+				if (fire_counter = fire_rate){
+					//select attack mode, right now random, will be more intelligent later
+					_random_seed = irandom(1)
+					switch(_random_seed){
+						case 0:
+							combat_state = alien_interceptor_1_combat_state.slide_attack
+						break;
+						
+						case 1:
+							combat_state = alien_interceptor_1_combat_state.straight_on_attack
+						break;
+						
+						case 2:
+						
+						break;
+					}
+					fire_counter = 0
+				}
+					
+				
+				
 				
 				break;
 				
+				case alien_interceptor_1_combat_state.orbiting_counter_clockwise:
+				_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
+				_tangent_direction = _direction_from_target + 90
+				if (_tangent_direction < 0){
+					_tangent_direction += 359
+				}
+				face_target(_tangent_direction)
+				direction = image_angle
+				speed += acceleration_rate
+				limit_speed()
+				
+				//set up the attack... this might need to become a script
+				if (fire_counter = fire_rate){
+					//select attack mode, right now random, will be more intelligent later
+					_random_seed = irandom(1)
+					switch(_random_seed){
+						case 0:
+							combat_state = alien_interceptor_1_combat_state.slide_attack
+						break;
+						
+						case 1:
+							combat_state = alien_interceptor_1_combat_state.straight_on_attack
+						break;
+						
+						case 2:
+						
+						break;
+					}
+					fire_counter = 0
+				}
+									
+				break;
+				#endregion
+				
+				#region attacking
+				case alien_interceptor_1.slide_attack:
+				
+				//YOU LEFT OFF HERE AT 10:51
+				_lead_target_direction = 
+				break;
+				
+				case alien_interceptor_1.straight_on_attack:
+				
+				break;
+					
+				#endregion
+			}	
 				
 		}
 		//return back to approaching or idle state
@@ -242,3 +323,8 @@ When all targers in range of the squad object are destroyed, the ships return to
 
 }
 #endregion
+
+//Post State machine checks (including counters)
+if (fire_counter < fire_rate){
+	fire_counter++
+}
