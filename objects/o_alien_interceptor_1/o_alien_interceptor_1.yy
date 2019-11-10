@@ -321,6 +321,48 @@
             "value": "90",
             "varName": "accuracy",
             "varType": 1
+        },
+        {
+            "id": "a1b53f57-bf82-4ad9-a607-f0a91ee1c54d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1",
+            "varName": "accuracy_factor",
+            "varType": 0
+        },
+        {
+            "id": "4555b443-0808-4d20-a282-f3875f0f7db7",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "missed_shot_direction",
+            "varType": 0
+        },
+        {
+            "id": "d4c93f9d-cb52-4213-9a74-43ce59dcd36e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "4",
+            "varName": "projectile_damage",
+            "varType": 0
         }
     ],
     "solid": false,

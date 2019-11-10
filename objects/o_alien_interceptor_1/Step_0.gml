@@ -208,20 +208,11 @@ When all targers in range of the squad object are destroyed, the ships return to
 			_target_speed = ship_target.speed
 			_distance_to_target = distance_to_object(ship_target)
 			_projectile_flight_time = _distance_to_target/projectile_speed
-			//calculate the accuracy factor - a 1 means thats teh target should be a dead on hit
-			_accuracy_roll = irandom(100)
-			_accuracy_factor = 1
-			if (_accuracy_roll > accuracy){
-				//factor by which the shot is off
-				_accuracy_factor = _accuracy_roll - accuracy
-				//direction of misaimed shot
-				var _shot_direction =irandom(1)
-				if (_shot_direction = 0){
-					_accuracy_factor *= -1
-				}
-			}
-			_lead_target_x = ship_target.x + lengthdir_x((_target_speed * accuracy_factor) * _projectile_flight_time, _target_direction)
-			_lead_target_y = ship_target.y + lengthdir_y((_target_speed * accuracy_factor) * _projectile_flight_time, _target_direction)
+					
+			_lead_target_x = ship_target.x + lengthdir_x((_target_speed) * _projectile_flight_time, _target_direction)
+			_lead_target_y = ship_target.y + lengthdir_y((_target_speed) * _projectile_flight_time, _target_direction)
+			
+			
 			
 			 //execute behavior based on the combat substate
 			switch(combat_state){
@@ -242,11 +233,23 @@ When all targers in range of the squad object are destroyed, the ships return to
 				
 				//set up the attack... this might need to become a script
 				if (fire_counter = fire_rate){
+					
 					//select attack mode, right now random, will be more intelligent later
 					_random_seed = irandom(1)
 					switch(_random_seed){
 						case 0:
 							combat_state = alien_interceptor_1_combat_state.slide_attack
+							accuracy_factor = 1
+							missed_shot_direction = 0
+							
+							accuracy_roll = irandom(100)
+							if (accuracy_roll > accuracy){
+								accuracy_factor = accuracy_roll - accuracy
+								missed_shot_direction = irandom(1)
+								if (missed_shot_direction = 0){
+									accuracy_factor *= -1
+								}
+							}
 						break;
 						
 						case 1:
@@ -257,7 +260,6 @@ When all targers in range of the squad object are destroyed, the ships return to
 						
 						break;
 					}
-					fire_counter = 0
 				}
 					
 				
@@ -265,48 +267,31 @@ When all targers in range of the squad object are destroyed, the ships return to
 				
 				break;
 				
-				case alien_interceptor_1_combat_state.orbiting_counter_clockwise:
-				_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
-				_tangent_direction = _direction_from_target + 90
-				if (_tangent_direction < 0){
-					_tangent_direction += 359
-				}
-				face_target(_tangent_direction)
-				direction = image_angle
-				speed += acceleration_rate
-				limit_speed()
-				
-				//set up the attack... this might need to become a script
-				if (fire_counter = fire_rate){
-					//select attack mode, right now random, will be more intelligent later
-					_random_seed = irandom(1)
-					switch(_random_seed){
-						case 0:
-							combat_state = alien_interceptor_1_combat_state.slide_attack
-						break;
-						
-						case 1:
-							combat_state = alien_interceptor_1_combat_state.straight_on_attack
-						break;
-						
-						case 2:
-						
-						break;
-					}
-					fire_counter = 0
-				}
-									
-				break;
 				#endregion
 				
 				#region attacking
-				case alien_interceptor_1.slide_attack:
+				case alien_interceptor_1_combat_state.slide_attack:
 				
-				//YOU LEFT OFF HERE AT 10:51
-				_lead_target_direction = 
+			
+				
+				_lead_target_direction = point_direction(x, y, _lead_target_x + accuracy_factor, _lead_target_y + accuracy_factor)
+				face_target(_lead_target_direction)
+				if (image_angle = _lead_target_direction){
+					//fire the shot
+					fire_counter = 0
+					var _projectile = instance_create_layer(x, y, "Projectile", o_bio_ball_player)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+						
+					}
+					
+				}
 				break;
 				
-				case alien_interceptor_1.straight_on_attack:
+				case alien_interceptor_1_combat_state.straight_on_attack:
 				
 				break;
 					

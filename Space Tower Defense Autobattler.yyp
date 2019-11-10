@@ -239,6 +239,14 @@
             }
         },
         {
+            "Key": "4c04cbd1-7ee9-4e57-b11c-323db7cb5e18",
+            "Value": {
+                "id": "b098ace9-b660-489c-bc3b-1b3ec086e523",
+                "resourcePath": "objects\\o_bio_ball_destroyed\\o_bio_ball_destroyed.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4d9b477b-6d4d-4c5b-983e-72af599a733f",
             "Value": {
                 "id": "b7e7fa83-154d-4358-8071-e2052b597c3a",
@@ -676,6 +684,14 @@
                 "id": "c6ad77a4-51eb-4855-81e1-c927d8873504",
                 "resourcePath": "sprites\\s_iron_capital_ship_death\\s_iron_capital_ship_death.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b1dbca11-ad01-4c0b-8a32-c370b8b782d1",
+            "Value": {
+                "id": "c3397d5b-d354-4c16-849c-e80771d866ac",
+                "resourcePath": "objects\\o_bio_ball_player\\o_bio_ball_player.yy",
+                "resourceType": "GMObject"
             }
         },
         {
