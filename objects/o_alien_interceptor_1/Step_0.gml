@@ -75,6 +75,8 @@ switch (state){
 	break;
 
 #endregion
+
+#region old notes
 /*General notes before programming this section
 approaching state is used when a valid target is acquired in range of the squad.
 
@@ -85,6 +87,8 @@ after all other ships are destroyed.
 When all targers in range of the squad object are destroyed, the ships return to idle state.
 
 */
+#endregion
+
 	case alien_interceptor_1.approaching:
 		//find the appropriate ship target
 		#region target finding - if (!instance_exists(ship_target))
@@ -432,7 +436,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (image_angle = _lead_target_direction){
 					//fire the shot
 					fire_counter = 0
-					var _projectile = instance_create_layer(x, y, "Projectiles", o_bio_ball_player)
+					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other.image_angle
