@@ -27,7 +27,10 @@ switch (state){
 #region alien_interceptor_1.idle
 	case alien_interceptor_1.idle:
 	//save and set new movement variables.  might want to just make it a new variable.
-	
+	if (instance_exists(targeted_squad) and distance_to_object(targeted_squad) < 500){
+		state = alien_interceptor_1.approaching
+		exit
+	}
 	turn_speed = turn_speed/2
 	
 	
@@ -221,7 +224,11 @@ When all targers in range of the squad object are destroyed, the ships return to
 		}
 		//exit the loop if there is no target
 		if (!instance_exists(ship_target)){
-			state = alien_interceptor_1.idle
+			state = alien_interceptor_1.approaching
+			if (!instance_exists(targeted_squad)){
+				state = alien_interceptor_1.idle
+				show_debug_message("line 227 triggered")
+			}
 		}
 		
 	break;
@@ -229,6 +236,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 	case alien_interceptor_1.engaging:
 		
 		if (instance_exists(ship_target)){
+			//set up variables used for the combat state machine
 			_target_direction = ship_target.direction
 			_target_speed = ship_target.speed
 			_distance_to_target = distance_to_object(ship_target)
@@ -240,11 +248,15 @@ When all targers in range of the squad object are destroyed, the ships return to
 			
 			
 			 //execute behavior based on the combat substate
+			 #region Combat State MAchine
 			switch(combat_state){
-				case alien_interceptor_1_combat_state.none:
 				
+				case alien_interceptor_1_combat_state.none:
+					//for later
 				break;
+				
 				#region orbiting
+				#region orbiting_clockwise
 				case alien_interceptor_1_combat_state.orbiting_clockwise:
 					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
 					_tangent_direction = _direction_from_target - 90
@@ -299,23 +311,110 @@ When all targers in range of the squad object are destroyed, the ships return to
 						
 						break;
 					}
+					
 				}
 				
 				//disengage
 				if (_distance_to_target < 25){
 					combat_state = alien_interceptor_1_combat_state.disengaging
 				}
-				if (_distance_to_target > weapon_range){
+				if (_distance_to_target > weapon_range - 20){
 					combat_state = alien_interceptor_1_combat_state.jousting
-				}					
+					
+				}
+				if (_distance_to_target > engagement_range and distance_to_object(squad_object) < 200){
+					combat_state = alien_interceptor_1_combat_state.none
+					state = iron_interceptor_1.approaching
+				}
+				
 				if (distance_to_object(squad_object) > 200){
 					combat_state = alien_interceptor_1_combat_state.returning_to_engagement
 				}
 					
-				
-				
-				
+												
 				break;
+				#endregion
+				
+				#region orbiting_counter_clockwise
+				case alien_interceptor_1_combat_state.orbiting_counter_clockwise:
+					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
+					_tangent_direction = _direction_from_target + 90
+				if (_tangent_direction < 0){
+					_tangent_direction += 359
+				}
+				face_target(_tangent_direction)
+				direction = image_angle
+				speed += acceleration_rate
+				limit_speed()
+				
+				//set up the attack... this might need to become a script
+				if (fire_counter = fire_rate){
+					
+					//select attack mode, right now random, will be more intelligent later
+					_random_seed = irandom(1)
+					switch(_random_seed){
+						case 0:
+							combat_state = alien_interceptor_1_combat_state.slide_attack
+							accuracy_factor = 1
+							missed_shot_direction = 0
+							
+							accuracy_roll = irandom(100)
+							if (accuracy_roll > accuracy){
+								accuracy_factor = accuracy_roll - accuracy
+								missed_shot_direction = irandom(1)
+								if (missed_shot_direction = 0){
+									accuracy_factor *= -1
+									string_factor = string(accuracy_factor)
+									show_debug_message("slide miss " + string_factor)
+								}
+							}
+						break;
+						
+						case 1:
+							combat_state = alien_interceptor_1_combat_state.straight_on_attack
+							accuracy_factor = 1
+							missed_shot_direction = 0
+							accuracy_roll = irandom(100)
+							if (accuracy_roll > accuracy){
+								accuracy_factor = accuracy_roll - accuracy
+								missed_shot_direction = irandom(1)
+								if (missed_shot_direction = 0){
+									accuracy_factor *= -1
+									string_factor = string(accuracy_factor)
+									show_debug_message("straight on miss " + string_factor)
+								}
+							}
+						break;
+						
+						case 2:
+						
+						break;
+					}
+					
+				}
+				
+				//disengage
+				if (_distance_to_target < 25){
+					combat_state = alien_interceptor_1_combat_state.disengaging
+				}
+				if (_distance_to_target > weapon_range - 20){
+					combat_state = alien_interceptor_1_combat_state.jousting
+					
+				}
+				if (_distance_to_target > engagement_range and distance_to_object(squad_object) < 200){
+					combat_state = alien_interceptor_1_combat_state.none
+					state = iron_interceptor_1.approaching
+				}
+				
+				if (distance_to_object(squad_object) > 200){
+					combat_state = alien_interceptor_1_combat_state.returning_to_engagement
+				}
+				
+					
+												
+				break;
+				#endregion
+				
 				
 				#endregion
 				
@@ -340,11 +439,15 @@ When all targers in range of the squad object are destroyed, the ships return to
 					}
 					//change state back
 					//will be random, or more intelligent later
-					var _combat_mode_to_change_to = 1
+					var _combat_mode_to_change_to = irandom(1)
 					
 					switch (_combat_mode_to_change_to){
-						case 1:
+						case 0:
 							combat_state = alien_interceptor_1_combat_state.orbiting_clockwise	
+						break;
+						
+						case 1:
+							combat_state = alien_interceptor_1_combat_state.orbiting_counter_clockwise
 						break;
 					}
 					
@@ -368,14 +471,18 @@ When all targers in range of the squad object are destroyed, the ships return to
 					}
 					//change state back
 					//will be random, or more intelligent later
-					var _combat_mode_to_change_to = 1
+					var _combat_mode_to_change_to = irandom(1)
 					
 					switch (_combat_mode_to_change_to){
-						case 1:
+						case 0:
 							combat_state = alien_interceptor_1_combat_state.orbiting_clockwise	
 						break;
+						
+						case 1:
+							combat_state = alien_interceptor_1_combat_state.orbiting_counter_clockwise
+						break;
 					}
-					
+										
 				}
 				
 				break;
@@ -471,6 +578,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				
 				break;
 				#endregion
+				#endregion
 				
 				
 				
@@ -480,6 +588,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 		//return back to approaching or idle state
 		if (!instance_exists(ship_target)){
 			state = alien_interceptor_1.approaching
+			show_debug_message("line 587 triggers")
 			target_scan_counter = 0
 		}
 	break;
