@@ -1,4 +1,4 @@
-enum alien_interceptor_1 {
+enum alien_interceptor_1_enemy {
 	idle,
 	approaching,
 	engaging,
@@ -7,9 +7,9 @@ enum alien_interceptor_1 {
 	returning
 }
 
-state = alien_interceptor_1.idle
+state = alien_interceptor_1_enemy.idle
 
-enum alien_interceptor_1_combat_state {
+enum alien_interceptor_1_combat_state_enemy {
 	orbiting_clockwise,
 	orbiting_counter_clockwise,
 	attacking,
@@ -20,5 +20,5 @@ enum alien_interceptor_1_combat_state {
 	none
 }
 
-combat_state = alien_interceptor_1_combat_state.none
+combat_state = alien_interceptor_1_combat_state_enemy.none
 	

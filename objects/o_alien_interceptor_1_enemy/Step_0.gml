@@ -7,7 +7,7 @@ of the ships.
 
 */
 if (target_acquired = true){
-	state = alien_interceptor_1.approaching
+	state = alien_interceptor_1_enemy.approaching
 	target_acquired = false
 	target_scan_counter = 0
 }
@@ -16,7 +16,7 @@ if (target_acquired = true){
 #region State Machine
 switch (state){
 #region alien_interceptor_1.idle
-	case alien_interceptor_1.idle:
+	case alien_interceptor_1_enemy.idle:
 	//save and set new movement variables.  might want to just make it a new variable.
 	turn_speed_previous = turn_speed
 	turn_speed = turn_speed/2
@@ -71,7 +71,7 @@ after all other ships are destroyed.
 When all targers in range of the squad object are destroyed, the ships return to idle state.
 
 */
-	case alien_interceptor_1.approaching:
+	case alien_interceptor_1_enemy.approaching:
 		//find the appropriate ship target
 		#region target finding - if (!instance_exists(ship_target))
 		//rescan for target or start the target scan counter
@@ -86,25 +86,25 @@ When all targers in range of the squad object are destroyed, the ships return to
 		
 		if (!instance_exists(ship_target) or ship_target = noone){
 			//find new target
-			enemy_ship_list = ds_list_create()
+			player_ship_list = ds_list_create()
 			with(targeted_squad){
 				if (instance_exists(ship_1)){
-					ds_list_add(other.enemy_ship_list, ship_1)
+					ds_list_add(other.player_ship_list, ship_1)
 				}
 				if (instance_exists(ship_2)){
-					ds_list_add(other.enemy_ship_list, ship_2)
+					ds_list_add(other.player_ship_list, ship_2)
 				}
 				if (instance_exists(ship_3)){
-					ds_list_add(other.enemy_ship_list, ship_3)
+					ds_list_add(other.player_ship_list, ship_3)
 				}
 				if (instance_exists(ship_4)){
-					ds_list_add(other.enemy_ship_list, ship_4)
+					ds_list_add(other.player_ship_list, ship_4)
 				}
 				if (instance_exists(ship_5)){
-					ds_list_add(other.enemy_ship_list, ship_5)
+					ds_list_add(other.player_ship_list, ship_5)
 				}
 			}
-			enemy_ship_list_size = ds_list_size(enemy_ship_list)
+			player_ship_list_size = ds_list_size(player_ship_list)
 			//variables for each type of ship class, might change up!
 			var targeted_interceptor = noone
 			var targeted_fighter = noone
@@ -112,8 +112,8 @@ When all targers in range of the squad object are destroyed, the ships return to
 			var targeted_emplacement = noone
 			
 			//This loop will find the closest instance of each kind of ship
-			for (i = 0; i < enemy_ship_list_size; i++){
-				var target = ds_list_find_value(enemy_ship_list, i)
+			for (i = 0; i < player_ship_list_size; i++){
+				var target = ds_list_find_value(player_ship_list, i)
 				
 				if (target.class = "interceptor"){
 					if (targeted_interceptor = noone){
@@ -185,7 +185,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			}
 			
 			//Other overriding commands for targeting (such as ults) could be placed here 
-			ds_list_destroy(enemy_ship_list)
+			ds_list_destroy(player_ship_list)
 		}
 		#endregion
 		
@@ -203,21 +203,21 @@ When all targers in range of the squad object are destroyed, the ships return to
 			
 			//engage with target if close enough
 			if (_target_distance < engagement_range){
-				state = alien_interceptor_1.engaging
+				state = alien_interceptor_1_enemy.engaging
 				//the exact state will be determined by comparing the current trajectory of both
 				//just not right now
-				combat_state = alien_interceptor_1_combat_state.orbiting_clockwise
+				combat_state = alien_interceptor_1_combat_state_enemy.orbiting_clockwise
 			}
 						
 		}
 		//exit the loop if there is no target
 		if (!instance_exists(ship_target)){
-			state = alien_interceptor_1.idle
+			state = alien_interceptor_1_enemy.idle
 		}
 		
 	break;
 	
-	case alien_interceptor_1.engaging:
+	case alien_interceptor_1_enemy.engaging:
 		
 		if (instance_exists(ship_target)){
 			_target_direction = ship_target.direction
@@ -232,11 +232,11 @@ When all targers in range of the squad object are destroyed, the ships return to
 			
 			 //execute behavior based on the combat substate
 			switch(combat_state){
-				case alien_interceptor_1_combat_state.none:
+				case alien_interceptor_1_combat_state_enemy.none:
 				
 				break;
 				#region orbiting
-				case alien_interceptor_1_combat_state.orbiting_clockwise:
+				case alien_interceptor_1_combat_state_enemy.orbiting_clockwise:
 					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
 					_tangent_direction = _direction_from_target - 90
 				if (_tangent_direction < 0){
@@ -254,7 +254,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 					_random_seed = 0
 					switch(_random_seed){
 						case 0:
-							combat_state = alien_interceptor_1_combat_state.slide_attack
+							combat_state = alien_interceptor_1_combat_state_enemy.slide_attack
 							accuracy_factor = 1
 							missed_shot_direction = 0
 							
@@ -269,7 +269,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 						break;
 						
 						case 1:
-							combat_state = alien_interceptor_1_combat_state.straight_on_attack
+							combat_state = alien_interceptor_1_combat_state_enemy.straight_on_attack
 						break;
 						
 						case 2:
@@ -286,7 +286,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				#endregion
 				
 				#region attacking
-				case alien_interceptor_1_combat_state.slide_attack:
+				case alien_interceptor_1_combat_state_enemy.slide_attack:
 				
 			
 				
@@ -295,7 +295,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (image_angle = _lead_target_direction){
 					//fire the shot
 					fire_counter = 0
-					var _projectile = instance_create_layer(x, y, "Projectiles", o_bio_ball_player)
+					var _projectile = instance_create_layer(x, y, "Projectiles", o_bio_ball_enemy)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other.image_angle
@@ -308,14 +308,14 @@ When all targers in range of the squad object are destroyed, the ships return to
 					
 					switch (_combat_mode_to_change_to){
 						case 1:
-							combat_state = alien_interceptor_1_combat_state.orbiting_clockwise	
+							combat_state = alien_interceptor_1_combat_state_enemy.orbiting_clockwise	
 						break;
 					}
 					
 				}
 				break;
 				
-				case alien_interceptor_1_combat_state.straight_on_attack:
+				case alien_interceptor_1_combat_state_enemy.straight_on_attack:
 				
 				break;
 					
@@ -325,7 +325,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 		}
 		//return back to approaching or idle state
 		if (!instance_exists(ship_target)){
-			state = alien_interceptor_1.approaching
+			state = alien_interceptor_1_enemy.approaching
 			target_scan_counter = 0
 		}
 	break;
