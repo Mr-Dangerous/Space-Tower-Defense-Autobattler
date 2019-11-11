@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "4191305b-0a27-492e-b783-747b4a036a27",
+            "Value": {
+                "id": "0668d590-6398-47d8-942b-953cd1d5f69c",
+                "resourcePath": "objects\\o_alien_interceptor_1_enemy1_archived\\o_alien_interceptor_1_enemy1_archived.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "42057697-5668-4946-806d-70070f904baa",
             "Value": {
                 "id": "c6d757ff-2041-4e25-ae41-b68c951310b0",
