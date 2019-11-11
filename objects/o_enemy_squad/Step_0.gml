@@ -1,5 +1,11 @@
 //pre state machine changes
-
+if (!instance_exists(ship_1) and
+!instance_exists(ship_2) and
+!instance_exists(ship_3) and
+!instance_exists(ship_4) and
+!instance_exists(ship_5)){
+	instance_destroy()
+}
 
 switch(state){
 	#region squad.defend_sector

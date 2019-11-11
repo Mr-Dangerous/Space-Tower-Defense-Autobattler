@@ -17,8 +17,11 @@ if (hp < 1){
 }
 
 turn_speed_previous = turn_speed
+if (turn_speed_counter < 5 and turn_speed_counter > 0){
+	turn_speed /= 2
+}
 if (turn_speed_counter > 0){
-	turn_speed /= 3
+	turn_speed /= 2
 }
 	
 
@@ -27,9 +30,8 @@ switch (state){
 #region alien_interceptor_1.idle
 	case alien_interceptor_1.idle:
 	//save and set new movement variables.  might want to just make it a new variable.
-	if (instance_exists(targeted_squad) and distance_to_object(targeted_squad) < 500){
+	if (instance_exists(ship_target)){
 		state = alien_interceptor_1.approaching
-		exit
 	}
 	turn_speed = turn_speed/2
 	
@@ -610,3 +612,5 @@ if (turn_speed_counter > 0){
 if (turn_speed != turn_speed_previous){
 	turn_speed = turn_speed_previous
 }
+
+show_debug_message(distance_to_object(squad_object))
