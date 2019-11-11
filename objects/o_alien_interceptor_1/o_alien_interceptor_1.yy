@@ -66,7 +66,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "40",
             "varName": "hp",
             "varType": 1
         },
@@ -80,7 +80,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "40",
             "varName": "max_hp",
             "varType": 0
         },
@@ -124,7 +124,7 @@
             "resourceFilter": 1023,
             "value": "5",
             "varName": "turn_speed",
-            "varType": 1
+            "varType": 0
         },
         {
             "id": "df424fe9-35c0-4a84-a439-384414c2c870",
@@ -405,6 +405,48 @@
             "value": "o_bio_ball_player",
             "varName": "projectile_type",
             "varType": 5
+        },
+        {
+            "id": "88ea5af7-393e-4b17-a90b-ece62b14a97b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "manuever_counter",
+            "varType": 1
+        },
+        {
+            "id": "f7467f4d-6247-4d70-95c6-1d5d68be8de4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "turn_speed_counter",
+            "varType": 1
+        },
+        {
+            "id": "2a937a19-7c41-4ec3-a0cd-bff4498397ec",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "150",
+            "varName": "weapon_range",
+            "varType": 1
         }
     ],
     "solid": false,
