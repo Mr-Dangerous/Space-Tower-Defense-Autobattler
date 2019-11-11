@@ -11,7 +11,10 @@ if (target_acquired = true){
 	target_acquired = false
 	target_scan_counter = 0
 }
-	
+
+if (hp < 1){
+	instance_destroy()
+}
 
 #region State Machine
 switch (state){
