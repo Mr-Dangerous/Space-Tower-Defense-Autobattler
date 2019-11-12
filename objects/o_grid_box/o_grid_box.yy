@@ -34,7 +34,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "player_unit",
+            "varName": "player_unit_stored",
             "varType": 4
         }
     ],
