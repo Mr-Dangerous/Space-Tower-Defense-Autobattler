@@ -1,2 +1,6 @@
-//placeholder code for now
+with (other){
+	hp -= other.damage
+}
+
 instance_destroy()
+

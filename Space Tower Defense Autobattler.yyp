@@ -663,6 +663,14 @@
             }
         },
         {
+            "Key": "9587b2f7-6203-4ab8-8f90-24f572fe6cfe",
+            "Value": {
+                "id": "2bc330b4-9893-4eba-a05d-36ff216ff00b",
+                "resourcePath": "sprites\\s_pirate_ship_interceptor_1_resized\\s_pirate_ship_interceptor_1_resized.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9640d1ee-9e24-4101-be53-f44c926a4a11",
             "Value": {
                 "id": "5d6720d5-578b-430a-b961-7af08818ed82",

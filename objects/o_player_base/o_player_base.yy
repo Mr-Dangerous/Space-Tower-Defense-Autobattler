@@ -162,6 +162,34 @@
             "value": "0",
             "varName": "ship_8",
             "varType": 4
+        },
+        {
+            "id": "c03083a0-a35b-4861-ad03-a76d7450717d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "30000",
+            "varName": "hp",
+            "varType": 1
+        },
+        {
+            "id": "3b15522a-9269-4241-af97-3601bf942e41",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "30000",
+            "varName": "max_hp",
+            "varType": 1
         }
     ],
     "solid": false,

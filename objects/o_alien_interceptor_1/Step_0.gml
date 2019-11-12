@@ -121,16 +121,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (instance_exists(ship_5)){
 					ds_list_add(other.enemy_ship_list, ship_5)
 				}
-				if (instance_exists(ship_6)){
-					ds_list_add(other.enemy_ship_list, ship_6)
-				}
-				if (instance_exists(ship_7)){
-					ds_list_add(other.enemy_ship_list, ship_7)
-				}
-				if (instance_exists(ship_8)){
-					ds_list_add(other.enemy_ship_list, ship_8)
-				}
-			}
+						}
 			enemy_ship_list_size = ds_list_size(enemy_ship_list)
 			//variables for each type of ship class, might change up!
 			var targeted_interceptor = noone

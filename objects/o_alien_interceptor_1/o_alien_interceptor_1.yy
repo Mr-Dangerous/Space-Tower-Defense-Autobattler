@@ -66,7 +66,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4000",
+            "value": "40",
             "varName": "hp",
             "varType": 1
         },
@@ -80,7 +80,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4000",
+            "value": "40",
             "varName": "max_hp",
             "varType": 0
         },
@@ -251,20 +251,6 @@
             "value": "0",
             "varName": "targeted_squad",
             "varType": 4
-        },
-        {
-            "id": "f2bc1ef3-6f89-4ec6-8548-19849cd1a71c",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "interceptor",
-            "varName": "class",
-            "varType": 2
         },
         {
             "id": "ed96d561-caf0-47d4-8188-d8126282008e",
@@ -450,6 +436,6 @@
         }
     ],
     "solid": false,
-    "spriteId": "712126ba-a536-4b4e-a402-545b48a0c37b",
+    "spriteId": "9587b2f7-6203-4ab8-8f90-24f572fe6cfe",
     "visible": true
 }

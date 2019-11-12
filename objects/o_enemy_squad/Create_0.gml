@@ -9,9 +9,9 @@ state = enemy_squad.approach_player
 //for now, they will be instances spawned
 //ship_1 is always the squad leader, and usually will be a hero ship.
 //for now, it's a corvette, which might be a squad leader type ship
-ship_1 = instance_create_layer(x, y, "Instances", o_alien_interceptor_1_enemy)
-ship_2 = instance_create_layer(x, y, "Instances", o_alien_interceptor_1_enemy)
-ship_3 = instance_create_layer(x, y, "Instances", o_alien_interceptor_1_enemy)
+ship_1 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
+ship_2 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
+ship_3 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
 
 //assign fomation details to the squad
 
