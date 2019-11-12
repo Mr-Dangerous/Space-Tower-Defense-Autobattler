@@ -83,6 +83,20 @@
             "value": "0",
             "varName": "turret_head",
             "varType": 4
+        },
+        {
+            "id": "44c31b2b-3a7f-45a1-867d-e57e9537eb23",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "emplacement",
+            "varName": "class",
+            "varType": 2
         }
     ],
     "solid": false,

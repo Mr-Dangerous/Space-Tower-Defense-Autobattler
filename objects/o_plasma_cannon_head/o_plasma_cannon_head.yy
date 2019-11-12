@@ -94,7 +94,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "100",
+            "value": "50",
             "varName": "fire_rate",
             "varType": 1
         },
@@ -136,7 +136,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "50",
+            "value": "100",
             "varName": "charge_rate",
             "varType": 1
         },
@@ -153,6 +153,34 @@
             "value": "noone",
             "varName": "charge_attack",
             "varType": 4
+        },
+        {
+            "id": "799a4979-7e1c-443f-aa60-9d0c805850b4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "30",
+            "varName": "projectile_damage",
+            "varType": 1
+        },
+        {
+            "id": "99b3d631-0c5a-420d-b5ff-4a4805732ecb",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "200",
+            "varName": "weapon_range",
+            "varType": 1
         }
     ],
     "solid": false,

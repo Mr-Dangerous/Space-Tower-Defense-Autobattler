@@ -20,6 +20,51 @@ repeat (14){
 				with(o_grid_box){
 					player_unit_stored = plasma_cannon
 				}
+				switch (i){
+					case -1:
+						switch(j){
+							case -1:
+								with(player_base){
+									ship_1 = plasma_cannon
+								}
+							break;
+							
+							case 0:
+								with(player_base){
+									ship_2 = plasma_cannon
+								}
+							break;
+						
+							
+							case 1:
+								with(player_base){
+									ship_3 = plasma_cannon
+								}
+							break;
+						}
+					break;
+					
+					case 1:
+						switch(j){
+							case -1:
+								with(player_base){
+									ship_4 = plasma_cannon
+								}
+							break;
+							
+							case 0:
+								with(player_base){
+									ship_5 = plasma_cannon
+								}
+							break;
+							
+							case 1:
+								with(player_base){
+									ship_6 = plasma_cannon
+								}
+							break;
+						}
+					break;
 			}
 		}
 		
@@ -29,6 +74,23 @@ repeat (14){
 				with(o_grid_box){
 					player_unit_stored = plasma_cannon
 				}
+				switch(j){
+					case -1:
+						with(player_base){
+							ship_7 = plasma_cannon
+						}	
+					break;
+							
+							
+					case 1:
+						with(player_base){
+							ship_8 = plasma_cannon
+						}
+					break;
+					}
+				}
+				
+				
 			}
 		}
 		j++

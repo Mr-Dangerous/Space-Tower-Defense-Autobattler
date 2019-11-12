@@ -198,7 +198,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "200",
             "varName": "engagement_range",
             "varType": 1
         },
@@ -271,6 +271,20 @@
             "value": "0.1",
             "varName": "acceleration_rate",
             "varType": 0
+        },
+        {
+            "id": "ea91c1fb-bf04-4db8-8376-98199b79f1ec",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "instance_find(o_player_base, 0)",
+            "varName": "player_base",
+            "varType": 4
         }
     ],
     "solid": false,

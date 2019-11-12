@@ -6,8 +6,7 @@
     "children": [
         "9b5d5121-00e8-4b35-a1af-4e4ca9854e1a",
         "605c3de1-fdb4-4af7-834b-db611325d879",
-        "132fc41b-ba5e-47ff-bb20-b47e0f11a682",
-        "ba3df5b5-08cc-436f-bfd6-1eb4cf330a21"
+        "132fc41b-ba5e-47ff-bb20-b47e0f11a682"
     ],
     "filterType": "GMObject",
     "folderName": "player objects",
