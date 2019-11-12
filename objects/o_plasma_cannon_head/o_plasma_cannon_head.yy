@@ -1,8 +1,8 @@
 {
-    "id": "68e3f07c-a627-4173-9a9d-1d3e23d0eaf1",
+    "id": "a5b64c1e-f7a7-4b9b-a6f5-077b8591f7bf",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_grid_box",
+    "name": "o_plasma_cannon_head",
     "eventList": [
         
     ],
@@ -22,23 +22,8 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
-    "properties": [
-        {
-            "id": "56f62777-c779-458f-9969-67770c419542",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "player_unit",
-            "varType": 4
-        }
-    ],
+    "properties": null,
     "solid": false,
-    "spriteId": "d788c725-8887-4f1e-a092-2b8889480a8c",
+    "spriteId": "01c50bf2-bdb6-43de-974a-bd5d76983ee9",
     "visible": true
 }

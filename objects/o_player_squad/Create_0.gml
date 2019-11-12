@@ -40,4 +40,3 @@ with(ship_5){
 }
 
 //for testing purposes only
-speed = .3
