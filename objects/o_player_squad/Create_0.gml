@@ -1,6 +1,7 @@
 enum squad{
 	defend_sector,
-	engage_enemy
+	engage_enemy,
+	assist_ally
 }
 
 state = squad.defend_sector
@@ -42,3 +43,8 @@ with(ship_5){
 }
 
 //for testing purposes only
+
+acceleration_rate = ship_1.acceleration_rate
+turn_speed = ship_1.turn_speed
+max_speed = ship_1.max_speed
+

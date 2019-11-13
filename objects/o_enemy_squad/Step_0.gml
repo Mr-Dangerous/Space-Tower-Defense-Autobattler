@@ -11,8 +11,10 @@ ship_5 = 0){
 switch(state){
 	#region 
 	case enemy_squad.approach_player:
-	nearest_squad = instance_nearest(x,y, o_player_squad)
-	if (!instance_exists(nearest_squad) or distance_to_object(nearest_squad) > 500){
+	nearest_player_ship = instance_nearest(x, y, o_player_ship)
+	if (instance_exists(nearest_player_ship)) nearest_squad = nearest_player_ship.squad_object
+	_distance_to_squad = distance_to_object(nearest_squad)
+	if (!instance_exists(nearest_squad) or _distance_to_squad > 500){
 		nearest_squad = player_base
 	}
 
@@ -27,7 +29,7 @@ switch(state){
 		direction = image_angle
 		
 		//interrupt to engage a nearby squad
-		var _target_distance = distance_to_object(nearest_squad)
+		var _target_distance = distance_to_object(nearest_player_ship)
 		if (_target_distance < engagement_range){
 			//stay focused on one target and retarget once every second if another squad is close
 			state = enemy_squad.engage_player
@@ -79,6 +81,7 @@ switch(state){
 	
 	if (!instance_exists(targeted_squad)){
 		state = enemy_squad.approach_player
+		targeted_squad = noone
 	}
 	
 	

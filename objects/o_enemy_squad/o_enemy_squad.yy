@@ -188,7 +188,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "200",
+            "value": "300",
             "varName": "engagement_range",
             "varType": 1
         },
