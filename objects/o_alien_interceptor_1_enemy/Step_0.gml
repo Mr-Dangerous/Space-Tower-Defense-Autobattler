@@ -586,7 +586,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
 					move_towards_target(_direction_from_target)
 					manuever_counter--
-					if (manuever_counter = 0){
+					if (manuever_counter = 1){
 						state = alien_interceptor_1_enemy.approaching
 						combat_state = alien_interceptor_1_enemy_combat_state.none
 						target_scan_counter = 0
@@ -651,6 +651,12 @@ When all targers in range of the squad object are destroyed, the ships return to
 					direction = image_angle
 					speed += acceleration_rate
 					limit_speed()
+					
+					if (position_meeting(x, y, squad_object) or manuever_counter = 1){
+						state = alien_interceptor_1_enemy.approaching
+						combat_state = alien_interceptor_1_enemy_combat_state.none
+						manuever_counter = 0
+					}
 				
 				break;
 				#endregion
