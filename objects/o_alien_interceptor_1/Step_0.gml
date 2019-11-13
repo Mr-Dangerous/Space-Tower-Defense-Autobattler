@@ -121,7 +121,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (instance_exists(ship_5)){
 					ds_list_add(other.enemy_ship_list, ship_5)
 				}
-						}
+			}
 			enemy_ship_list_size = ds_list_size(enemy_ship_list)
 			//variables for each type of ship class, might change up!
 			var targeted_interceptor = noone
@@ -409,7 +409,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				if (_distance_to_target > engagement_range and distance_to_object(squad_object) < 200){
 					combat_state = alien_interceptor_1_combat_state.none
-					state = iron_interceptor_1.approaching
+					state = alien_interceptor_1.approaching
 				}
 				
 				if (distance_to_object(squad_object) > 200){
@@ -594,6 +594,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 		//return back to approaching or idle state
 		if (!instance_exists(ship_target)){
 			state = alien_interceptor_1.approaching
+			combat_state = alien_interceptor_1_combat_state.none
 			show_debug_message("line 587 triggers")
 			target_scan_counter = 0
 		}
@@ -617,4 +618,3 @@ if (turn_speed != turn_speed_previous){
 	turn_speed = turn_speed_previous
 }
 
-show_debug_message(distance_to_object(squad_object))

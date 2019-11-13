@@ -43,20 +43,6 @@
     "physicsStartAwake": true,
     "properties": [
         {
-            "id": "6bf48e46-6ae2-447f-9ddb-74652c72411d",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "squad_object",
-            "varType": 4
-        },
-        {
             "id": "2037c706-8d89-4862-9a94-538d0600b074",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

@@ -35,7 +35,7 @@
             "resourceFilter": 1023,
             "value": "corvette",
             "varName": "class",
-            "varType": 0
+            "varType": 2
         }
     ],
     "solid": false,

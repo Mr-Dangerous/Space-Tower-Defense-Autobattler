@@ -12,6 +12,9 @@ state = enemy_squad.approach_player
 ship_1 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
 ship_2 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
 ship_3 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
+ship_4 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
+ship_5 = instance_create_layer(x, y, "Ships", o_alien_interceptor_1_enemy)
+
 
 //assign fomation details to the squad
 

@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "o_player_ship",
     "eventList": [
-        
+        {
+            "id": "1d615a7f-20f2-4391-8e00-f187167310e1",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 1,
+            "m_owner": "831522c6-2dac-4507-a762-ca9ac15be58e"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
@@ -23,7 +32,20 @@
     "physicsShapePoints": null,
     "physicsStartAwake": true,
     "properties": [
-        
+        {
+            "id": "db2d9ab5-91b2-4f0a-ad27-06245565657d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "squad_object",
+            "varType": 4
+        }
     ],
     "solid": false,
     "spriteId": "00000000-0000-0000-0000-000000000000",

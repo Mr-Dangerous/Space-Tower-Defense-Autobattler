@@ -43,20 +43,6 @@
     "physicsStartAwake": true,
     "properties": [
         {
-            "id": "27d07803-358f-457b-8b19-10dde28c3a20",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "squad_object",
-            "varType": 4
-        },
-        {
             "id": "dbf15444-2671-4e75-9f3f-9c307faeeaea",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -66,7 +52,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "15",
+            "value": "50",
             "varName": "hp",
             "varType": 1
         },
@@ -80,7 +66,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "15",
+            "value": "50",
             "varName": "max_hp",
             "varType": 0
         },
@@ -360,7 +346,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "40",
             "varName": "projectile_damage",
             "varType": 0
         },

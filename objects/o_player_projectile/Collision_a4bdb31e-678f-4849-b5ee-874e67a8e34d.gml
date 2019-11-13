@@ -1,3 +1,5 @@
+//o_player_projectile step event
+
 with (other){
 	hp -= other.damage
 }

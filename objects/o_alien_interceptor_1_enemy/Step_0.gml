@@ -326,7 +326,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				if (_distance_to_target > engagement_range and distance_to_object(squad_object) < 200){
 					combat_state = alien_interceptor_1_enemy_combat_state.none
-					state = iron_interceptor_1.approaching
+					state = alien_interceptor_1_enemy.approaching
 				}
 				
 				if (distance_to_object(squad_object) > 200){
@@ -613,4 +613,3 @@ if (turn_speed != turn_speed_previous){
 	turn_speed = turn_speed_previous
 }
 
-show_debug_message(distance_to_object(squad_object))

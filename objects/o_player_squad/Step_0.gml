@@ -1,11 +1,14 @@
+//o_player_squad step event
+
 //pre state machine changes
-if (!instance_exists(ship_1) and
-!instance_exists(ship_2) and
-!instance_exists(ship_3) and
-!instance_exists(ship_4) and
-!instance_exists(ship_5)){
+if (ship_1 = 0 and
+ship_2 = 0 and
+ship_3 = 0 and
+ship_4 = 0 and
+ship_5 = 0){
 	instance_destroy()
 }
+	
 
 switch(state){
 	#region squad.defend_sector
@@ -120,6 +123,9 @@ switch(state){
 	
 	#region engage_enemy
 	case squad.engage_enemy:
+		if (!instance_exists(nearest_squad)){
+			state = squad.defend_sector
+		}
 	
 	break;
 	#endregion

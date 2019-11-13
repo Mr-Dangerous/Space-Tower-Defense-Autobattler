@@ -1,9 +1,9 @@
 //pre state machine changes
-if (!instance_exists(ship_1) and
-!instance_exists(ship_2) and
-!instance_exists(ship_3) and
-!instance_exists(ship_4) and
-!instance_exists(ship_5)){
+if (ship_1 = 0 and
+ship_2 = 0 and
+ship_3 = 0 and
+ship_4 = 0 and
+ship_5 = 0){
 	instance_destroy()
 }
 	
@@ -71,7 +71,7 @@ switch(state){
 	#endregion
 	
 	
-	#region engage_enemy
+	#region engage_player
 	case enemy_squad.engage_player:
 	if (speed != 0){
 		speed =0
