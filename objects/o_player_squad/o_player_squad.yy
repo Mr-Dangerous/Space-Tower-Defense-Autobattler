@@ -303,6 +303,20 @@
             "value": "0",
             "varName": "max_speed",
             "varType": 0
+        },
+        {
+            "id": "f91d2937-c668-48ae-9316-1cbc4880dbfe",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "assigned_grid_space",
+            "varType": 4
         }
     ],
     "solid": false,

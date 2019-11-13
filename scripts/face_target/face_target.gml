@@ -10,4 +10,5 @@ if (image_angle != _point_direction){
 		if (abs(_angle_difference) < 4){
 			image_angle = _point_direction
 		}
+
 	}

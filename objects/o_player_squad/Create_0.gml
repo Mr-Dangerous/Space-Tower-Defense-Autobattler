@@ -48,3 +48,7 @@ acceleration_rate = ship_1.acceleration_rate
 turn_speed = ship_1.turn_speed
 max_speed = ship_1.max_speed
 
+//grid space - dirty for now, will be drag and drop later
+
+assigned_grid_space = instance_nearest(x, y, o_grid_box)
+
