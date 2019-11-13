@@ -47,10 +47,7 @@ switch (state){
 	
 	if (_distance_to_formation_point > 0){
 		_direction_to_formation_point = point_direction(x, y,  _formation_point_x, _formation_point_y)
-		face_target(_direction_to_formation_point)
-		direction = image_angle
-		speed += acceleration_rate
-		limit_speed()
+		move_towards_target(_direction_to_formation_point)
 		if (formation_locked){
 			speed = squad_object.speed
 			}
@@ -209,11 +206,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			//variables needed for everything
 			_target_direction = point_direction(x, y, ship_target.x, ship_target.y)
 			_target_distance = distance_to_object(ship_target)
-			//move towards target
-			face_target(_target_direction)
-			direction = image_angle
-			speed += acceleration_rate
-			limit_speed()
+			move_towards_target(_target_direction)
 			
 			//engage with target if close enough
 			if (_target_distance < engagement_range){
@@ -229,7 +222,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			state = alien_interceptor_1_enemy.approaching
 			if (!instance_exists(targeted_squad)){
 				state = alien_interceptor_1_enemy.idle
-				show_debug_message("line 227 triggered")
+				
 			}
 		}
 		
@@ -265,10 +258,8 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (_tangent_direction < 0){
 					_tangent_direction += 359
 				}
-				face_target(_tangent_direction)
-				direction = image_angle
-				speed += acceleration_rate
-				limit_speed()
+				move_towards_target(_tangent_direction)
+				
 				
 				//set up the attack... this might need to become a script
 				if (fire_counter = fire_rate){
@@ -344,11 +335,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (_tangent_direction < 0){
 					_tangent_direction += 359
 				}
-				face_target(_tangent_direction)
-				direction = image_angle
-				speed += acceleration_rate
-				limit_speed()
-				
+				move_towards_target(_tangent_direction)
 				//set up the attack... this might need to become a script
 				if (fire_counter = fire_rate){
 					
@@ -396,8 +383,10 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				
 				//disengage
-				if (_distance_to_target < 25){
+				var nearest_player_ship = instance_nearest(x, y, o_player_ship)
+				if (distance_to_object(nearest_player_ship) < 25){
 					combat_state = alien_interceptor_1_enemy_combat_state.disengaging
+					ship_target = nearest_player_ship
 				}
 				if (_distance_to_target > weapon_range - 20){
 					combat_state = alien_interceptor_1_enemy_combat_state.jousting
@@ -432,7 +421,49 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (image_angle = _lead_target_direction){
 					//fire the shot
 					fire_counter = 0
-					var _projectile = instance_create_layer(x, y, "Projectiles", o_bio_ball_enemy)
+					
+					
+					//front right gun
+					right_angle_direction  = direction - 13
+					
+					_new_x_right = lengthdir_x(31, right_angle_direction)
+					_new_y_right = lengthdir_y(31, right_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_right, y+_new_y_right, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					//front left gun
+					left_angle_direction = direction + 13
+					_new_x_left = lengthdir_x(31, left_angle_direction)
+					_new_y_left = lengthdir_y(31, left_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_left, y+_new_y_left, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					
+					//rear right gun
+					right_angle_direction  = direction - 49
+					_new_x_right = lengthdir_x(29, right_angle_direction)
+					_new_y_right = lengthdir_y(29, right_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_right, y+_new_y_right, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					
+					//rear left gun
+					left_angle_direction = direction + 49
+					_new_x_left = lengthdir_x(31, left_angle_direction)
+					_new_y_left = lengthdir_y(31, left_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_left, y+_new_y_left, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other.image_angle
@@ -464,7 +495,47 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (image_angle = _lead_target_direction){
 					//fire the shot
 					fire_counter = 0
-					var _projectile = instance_create_layer(x, y, "Projectiles", o_bio_ball_player)
+					//front right gun
+					right_angle_direction  = direction - 13
+					
+					_new_x_right = lengthdir_x(31, right_angle_direction)
+					_new_y_right = lengthdir_y(31, right_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_right, y+_new_y_right, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					//front left gun
+					left_angle_direction = direction + 13
+					_new_x_left = lengthdir_x(31, left_angle_direction)
+					_new_y_left = lengthdir_y(31, left_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_left, y+_new_y_left, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					
+					//rear right gun
+					right_angle_direction  = direction - 49
+					_new_x_right = lengthdir_x(29, right_angle_direction)
+					_new_y_right = lengthdir_y(29, right_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_right, y+_new_y_right, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other.image_angle
+						direction = image_angle
+						damage = other.projectile_damage
+					}
+					
+					//rear left gun
+					left_angle_direction = direction + 49
+					_new_x_left = lengthdir_x(31, left_angle_direction)
+					_new_y_left = lengthdir_y(31, left_angle_direction)
+					var _projectile = instance_create_layer(x+_new_x_left, y+_new_y_left, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other.image_angle
@@ -494,7 +565,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				#region disengaging
 				case alien_interceptor_1_enemy_combat_state.disengaging:
 					if (manuever_counter == 0){
-						manuever_counter = irandom_range(10, 40)
+						manuever_counter = irandom_range(20, 50)
 					}
 					if (fire_counter = fire_rate and speed = max_speed){
 						combat_state = alien_interceptor_1_enemy_combat_state.slide_attack
@@ -513,10 +584,13 @@ When all targers in range of the squad object are destroyed, the ships return to
 					}
 						
 					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
-					face_target(_direction_from_target)
-					direction = image_angle
-					speed += acceleration_rate
-					limit_speed()
+					move_towards_target(_direction_from_target)
+					manuever_counter--
+					if (manuever_counter = 0){
+						state = alien_interceptor_1_enemy.approaching
+						combat_state = alien_interceptor_1_enemy_combat_state.none
+						target_scan_counter = 0
+					}
 					
 				
 				break;

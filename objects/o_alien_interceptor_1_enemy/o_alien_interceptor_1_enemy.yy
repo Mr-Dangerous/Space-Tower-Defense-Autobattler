@@ -346,7 +346,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "1",
             "varName": "projectile_damage",
             "varType": 0
         },
