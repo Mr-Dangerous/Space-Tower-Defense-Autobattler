@@ -175,6 +175,14 @@
             }
         },
         {
+            "Key": "2918b2a1-da10-4fbf-9eac-c84cc1f67735",
+            "Value": {
+                "id": "0703e5b1-f45a-41d0-9de4-020294afee71",
+                "resourcePath": "objects\\o_projectile_leader\\o_projectile_leader.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2bb46d15-83c1-4ce5-b60c-1e751be1a0f2",
             "Value": {
                 "id": "41403dad-a9ca-4934-9767-8298e94b8b6d",
@@ -295,6 +303,14 @@
             }
         },
         {
+            "Key": "48e970e6-19f4-45de-8eef-0fb6dc9fae65",
+            "Value": {
+                "id": "8949a5b6-0767-4792-9dcb-66e1b57b8b86",
+                "resourcePath": "sprites\\s_projectile_leader\\s_projectile_leader.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4b57a48f-f446-406f-9193-f1a94b1daa7a",
             "Value": {
                 "id": "1002a3b2-0534-4b23-ba99-f78389762ad8",
@@ -324,6 +340,14 @@
                 "id": "b2acd13a-d907-471f-95f7-8cb6ff14b291",
                 "resourcePath": "sprites\\s_alien_corvette_resized\\s_alien_corvette_resized.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4fda7044-9aff-4524-93af-e395c364d975",
+            "Value": {
+                "id": "94dcf476-6c5d-4036-be67-7a7f183bf5ac",
+                "resourcePath": "objects\\o_pirate_interceptor_1\\o_pirate_interceptor_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {

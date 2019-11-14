@@ -13,6 +13,26 @@
             "enumb": 0,
             "eventtype": 3,
             "m_owner": "93090a17-bd24-458e-9460-f2bc0a341d29"
+        },
+        {
+            "id": "077c72ac-5413-4aac-9ab1-263773bd2c2e",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "93090a17-bd24-458e-9460-f2bc0a341d29"
+        },
+        {
+            "id": "e5682ff3-2bb9-473b-8358-5a5b7ae5d681",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 1,
+            "m_owner": "93090a17-bd24-458e-9460-f2bc0a341d29"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -59,6 +79,20 @@
             "value": "200",
             "varName": "duration",
             "varType": 1
+        },
+        {
+            "id": "22e2dcd9-495c-48c8-a319-da8470e87db5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "projectile_leader",
+            "varType": 0
         }
     ],
     "solid": false,
