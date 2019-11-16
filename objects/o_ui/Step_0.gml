@@ -17,7 +17,7 @@ if (keyboard_check_pressed(vk_space)){
 	}
 	camera_set_view_size(view_camera[0], view_width*zoom, view_height*zoom)
 }
-
+//hi!
 
 //scrolling handling
 camera_moving_x = false
