@@ -1,3 +1,4 @@
+/*
 var view_x_position = camera_get_view_x(view_camera[0])
 var view_y_position = camera_get_view_y(view_camera[0])
 var view_width = camera_get_view_width(view_camera[0])
@@ -107,5 +108,5 @@ layer_y("Background", _cam_y * .95)
 //end of step resets
 fast_camera = false
 max_camera_speed = 4
-
+*/
 
