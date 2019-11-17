@@ -317,6 +317,34 @@
             "value": "0",
             "varName": "assigned_grid_space",
             "varType": 4
+        },
+        {
+            "id": "40787aa0-4ee6-4ee0-bbf7-483cf2337d53",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "pilot",
+            "varType": 4
+        },
+        {
+            "id": "55651130-1de8-4489-ab84-43f751b5abe9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "ordinance",
+            "varType": 4
         }
     ],
     "solid": false,

@@ -52,9 +52,37 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "noone",
             "varName": "squad_object",
             "varType": 4
+        },
+        {
+            "id": "6d552f9b-45b0-4523-93c7-ad3057282f49",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "pilot",
+            "varType": 4
+        },
+        {
+            "id": "382fd8bb-ab67-4a23-bef3-9afab55d8b8d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "stun_counter",
+            "varType": 1
         }
     ],
     "solid": false,

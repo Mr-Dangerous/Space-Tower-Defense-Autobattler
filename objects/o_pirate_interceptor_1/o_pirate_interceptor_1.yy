@@ -43,16 +43,6 @@
             "enumb": 0,
             "eventtype": 4,
             "m_owner": "4fda7044-9aff-4524-93af-e395c364d975"
-        },
-        {
-            "id": "7f479941-5d38-41a9-9f71-0449a72ef29e",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 2,
-            "m_owner": "4fda7044-9aff-4524-93af-e395c364d975"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -491,6 +481,62 @@
             "value": "2",
             "varName": "base_max_speed",
             "varType": 0
+        },
+        {
+            "id": "4b85b929-e96f-4cea-8d60-c7ee40e203b9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "ultimate_energy",
+            "varType": 1
+        },
+        {
+            "id": "513db3b6-0992-4ec8-83e7-427c4f2f6524",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "5",
+            "varName": "max_ultimate_energy",
+            "varType": 1
+        },
+        {
+            "id": "67ac95cb-cd7e-49b6-9246-776bdcd76350",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "pilot_attached",
+            "varType": 3
+        },
+        {
+            "id": "2361efab-3fd4-48bb-b8a5-2244df1be4b9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "70",
+            "varName": "ult_stun_duration",
+            "varType": 1
         }
     ],
     "solid": false,

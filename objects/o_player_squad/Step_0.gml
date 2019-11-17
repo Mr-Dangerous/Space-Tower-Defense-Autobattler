@@ -146,6 +146,7 @@ if (enemy_focus_counter > 0){
 	enemy_focus_counter--
 }
 
-//for testing purposes only
+//Pilot things
+if (instance_exists(pilot)){
 
-//
+}

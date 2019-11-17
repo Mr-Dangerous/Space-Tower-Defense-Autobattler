@@ -23,6 +23,10 @@ if (turn_speed_counter < 5 and turn_speed_counter > 0){
 if (turn_speed_counter > 0){
 	turn_speed /= 2
 }
+
+if (stun_counter > 0){
+	state = alien_interceptor_1_enemy.disabled
+}
 	
 
 #region State Machine
@@ -674,6 +678,14 @@ When all targers in range of the squad object are destroyed, the ships return to
 			target_scan_counter = 0
 		}
 	break;
+	
+	case alien_interceptor_1_enemy.disabled:
+		if (stun_counter > 0){
+			speed = .05
+		}
+		
+		show_debug_message("stunned!")
+	break;
 
 }
 #endregion
@@ -691,5 +703,13 @@ if (turn_speed_counter > 0){
 }
 if (turn_speed != turn_speed_previous){
 	turn_speed = turn_speed_previous
+}
+
+if (stun_counter > 0){
+	stun_counter--
+	if (stun_counter = 0){
+		state = alien_interceptor_1_enemy.approaching
+		combat_state = alien_interceptor_1_enemy_combat_state.none
+	}
 }
 

@@ -2,7 +2,8 @@ enum pirate_interceptor_1 {
 	idle,
 	approaching,
 	engaging,
-	returning
+	returning, 
+	ultimate
 }
 
 state = pirate_interceptor_1.idle

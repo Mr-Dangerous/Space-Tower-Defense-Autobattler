@@ -8,7 +8,9 @@ of the ships.
 */
 
 
-
+if (instance_exists(ship_target) and ultimate_energy = max_ultimate_energy and ultimate_energy !=0){
+	state = alien_interceptor_1.ultimate
+}
 if (target_acquired = true){
 	state = alien_interceptor_1.approaching
 	target_acquired = false

@@ -2,7 +2,8 @@ enum alien_interceptor_1_enemy {
 	idle,
 	approaching,
 	engaging,
-	returning
+	returning,
+	disabled
 }
 
 state = alien_interceptor_1_enemy.idle

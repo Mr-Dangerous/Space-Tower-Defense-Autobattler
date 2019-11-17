@@ -7,7 +7,9 @@
         "9b5d5121-00e8-4b35-a1af-4e4ca9854e1a",
         "605c3de1-fdb4-4af7-834b-db611325d879",
         "132fc41b-ba5e-47ff-bb20-b47e0f11a682",
-        "65b4c33f-1888-4c60-97b5-a06756f4e08a"
+        "65b4c33f-1888-4c60-97b5-a06756f4e08a",
+        "d75617b7-1005-43c7-9bed-891ca05ebc2d",
+        "a181ef65-2350-4883-9021-f11426bb0b81"
     ],
     "filterType": "GMObject",
     "folderName": "player objects",

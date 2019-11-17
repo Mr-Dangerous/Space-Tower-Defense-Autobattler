@@ -419,9 +419,37 @@
             "value": "150",
             "varName": "weapon_range",
             "varType": 1
+        },
+        {
+            "id": "a3bec97a-999e-4165-a179-cf3f77ffde65",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "ultimate_energy",
+            "varType": 1
+        },
+        {
+            "id": "0874a774-3062-473d-8940-e33b2beb9845",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "max_ultimate_energy",
+            "varType": 1
         }
     ],
     "solid": false,
-    "spriteId": "9587b2f7-6203-4ab8-8f90-24f572fe6cfe",
+    "spriteId": "712126ba-a536-4b4e-a402-545b48a0c37b",
     "visible": true
 }

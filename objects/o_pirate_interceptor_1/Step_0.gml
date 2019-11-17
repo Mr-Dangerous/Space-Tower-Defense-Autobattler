@@ -6,7 +6,16 @@ This region is for variables that the commanding squad object uses to change the
 of the ships.  
 
 */
-
+if (instance_exists(pilot) and pilot_attached = false){
+	if (image_xscale = 1.25){
+		pilot_attached = true
+	}
+	image_xscale += .01
+	image_yscale += .01
+}
+if (instance_exists(ship_target) and ultimate_energy >= max_ultimate_energy and ultimate_energy !=0){
+	state = pirate_interceptor_1.ultimate
+}
 
 
 if (target_acquired = true){
@@ -14,6 +23,7 @@ if (target_acquired = true){
 	target_acquired = false
 	target_scan_counter = 0
 }
+
 
 if (hp < 1){
 	instance_destroy()
@@ -642,11 +652,45 @@ When all targers in range of the squad object are destroyed, the ships return to
 			target_scan_counter = 0
 		}
 	break;
+	
+	case pirate_interceptor_1.ultimate:
+		combat_state = pirate_interceptor_1_combat_state.none
+		if (!instance_exists(ship_target)){
+			state = pirate_interceptor_1.approaching
+		}
+		if (instance_exists(ship_target)){
+			move_towards_target(point_direction(x, y, ship_target.x, ship_target.y))
+			_target_direction = ship_target.direction
+			_target_speed = ship_target.speed
+			_distance_to_target = distance_to_object(ship_target)
+			_projectile_flight_time = _distance_to_target/projectile_speed
+					
+			_lead_target_x = ship_target.x + lengthdir_x((_target_speed * _projectile_flight_time), _target_direction)
+			_lead_target_y = ship_target.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
+		
+			_direction_to_lead_target = point_direction(x, y, _lead_target_x, _lead_target_y)
+		
+			if (distance_to_object(ship_target) < 150 and image_angle = _direction_to_lead_target) {
+				//create the net, shoot it
+				var net_ult = instance_create_layer(x, y, "Projectiles", o_net_ult)
+				with (net_ult){
+					speed = other.projectile_speed
+					damage = other.projectile_damage
+					stun_duration = other.ult_stun_duration
+					direction = other._direction_to_lead_target
+				}
+				ultimate_energy = 0
+				state = pirate_interceptor_1.approaching
+			}
+		}
+		
+	break;
 
 }
 #endregion
 
 //Post State machine checks (including counters)
+#region post statemachine checks
 if (fire_counter < fire_rate){
 	fire_counter++
 }
@@ -670,3 +714,4 @@ if (dodge_counter > 0){
 if (dodge_counter = 0){
 	max_speed = base_max_speed
 }
+#endregion
