@@ -5,16 +5,6 @@
     "name": "o_net_ult",
     "eventList": [
         {
-            "id": "6509ff33-35a6-46c4-8932-7ef4a1c8144f",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "433efea9-6655-4c62-9c69-6b25a7fe7595",
-            "enumb": 0,
-            "eventtype": 4,
-            "m_owner": "96cfca2e-55e0-4a16-ae68-e87bca811d55"
-        },
-        {
             "id": "b29d4b18-315e-4aba-9857-62dc13240ee4",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -32,6 +22,26 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 1,
+            "m_owner": "96cfca2e-55e0-4a16-ae68-e87bca811d55"
+        },
+        {
+            "id": "56f17600-9192-45c0-901b-ef5e42b26095",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "96cfca2e-55e0-4a16-ae68-e87bca811d55"
+        },
+        {
+            "id": "7eb12957-0af7-4d52-9dbb-5772cf8fd33a",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "433efea9-6655-4c62-9c69-6b25a7fe7595",
+            "enumb": 0,
+            "eventtype": 4,
             "m_owner": "96cfca2e-55e0-4a16-ae68-e87bca811d55"
         }
     ],
@@ -65,6 +75,20 @@
             "value": "0",
             "varName": "stun_duration",
             "varType": 1
+        },
+        {
+            "id": "11fe338d-4861-437a-bc88-266f68dc9893",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "target",
+            "varType": 4
         }
     ],
     "solid": false,

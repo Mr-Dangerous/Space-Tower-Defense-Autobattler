@@ -707,6 +707,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 					damage = other.projectile_damage
 					stun_duration = other.ult_stun_duration
 					direction = other._direction_to_lead_target
+					image_angle = direction
 				}
 				ultimate_energy = 0
 				state = pirate_interceptor_1.approaching

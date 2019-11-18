@@ -7,3 +7,9 @@ if (duration = 0){
 if (image_index = image_number - 1){
 	image_speed = 0
 }
+if (speed > 0 ){
+	speed -=.2
+}
+if (speed < 0){
+	speed = 0
+}
