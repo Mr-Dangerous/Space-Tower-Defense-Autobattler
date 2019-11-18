@@ -1,34 +1,37 @@
-
-/*========================================
+#region  Pre state Machine checks
+/*========================================Good luck!
 Pre state machine checks
 
 This region is for variables that the commanding squad object uses to change the state
 of the ships.  
 
 */
+
+//Check to see if a pilot is attached to this
+//should the pilot be an pbject?  Yes!
 if (instance_exists(pilot) and pilot_attached = false){
-	if (image_xscale = 1.25){
+	if (image_xscale = 1.35){
 		pilot_attached = true
+		dodge_chance = pilot.dodge_chance
+		projectile_damage *= pilot.damage_boost
+		max_speed *= pilot.speed_boost
 	}
 	image_xscale += .01
 	image_yscale += .01
+	
 }
+//Use ultimate ability, may want to also check to see if disabled
+//checks to see if disabled via the state check later
 if (instance_exists(ship_target) and ultimate_energy >= max_ultimate_energy and ultimate_energy !=0){
 	state = pirate_interceptor_1.ultimate
 }
 
-
-if (target_acquired = true){
-	state = pirate_interceptor_1.approaching
-	target_acquired = false
-	target_scan_counter = 0
-}
-
-
+//Destroy self if hp = dead
 if (hp < 1){
 	instance_destroy()
 }
 
+//Set up saved movement variables, ISSUE:  could just be seperate variable defintions
 turn_speed_previous = turn_speed
 if (turn_speed_counter < 5 and turn_speed_counter > 0){
 	turn_speed /= 2
@@ -37,19 +40,38 @@ if (turn_speed_counter > 0){
 	turn_speed /= 2
 }
 
+//what even is this?
+if (target_acquired = true){
+	state = pirate_interceptor_1.approaching
+	target_acquired = false
+	target_scan_counter = 0
+}
+
+//This section will check for all of the various status effects that can hit the ship and adjust the state accordingly
+//This section is only for disabling effects.
+//ISSUE: Blinds and other such abilities will be handled elsewhere, and not right now.
+//likely will still be in the pre state machine checks
+if (stun_counter > 0){
+	state = pirate_interceptor_1.disabled
+}
+
+
+#endregion
 
 
 #region State Machine
 switch (state){
 #region pirate_interceptor_1.idle
 	case pirate_interceptor_1.idle:
-	//save and set new movement variables.  might want to just make it a new variable.
+	
 	if (instance_exists(ship_target)){
 		state = pirate_interceptor_1.approaching
 	}
+	
+	//save and set new movement variables.  might want to just make it a new variable.
 	turn_speed = turn_speed/2
 	
-	
+	//find formation points
 	_formation_direction_offset_calculated = squad_object.direction + formation_direction_offset
 	if (_formation_direction_offset_calculated < 0){
 		_formation_direction_offset_calculated += 360
@@ -59,14 +81,21 @@ switch (state){
 		
 	_distance_to_formation_point = distance_to_point(_formation_point_x, _formation_point_y)
 	
+	//move into formation.
+	
 	if (_distance_to_formation_point > 0){
 		_direction_to_formation_point = point_direction(x, y,  _formation_point_x, _formation_point_y)
 		move_towards_target(_direction_to_formation_point)
+		//ISSUE:  Whats teh prupose of this?  I think this is a previosu artifact of
+		//the moving into formation attempt
 		if (formation_locked){
 			speed = squad_object.speed
 			}
 			
 	}
+	
+	//lock into formation.  
+	//ISSUE:  ship will just jump to point if the collision mask intersects.  Needs to be smoother
 	if (_distance_to_formation_point = 0){
 		
 		x = _formation_point_x
@@ -78,8 +107,6 @@ switch (state){
 		}
 		direction = image_angle
 	}
-	
-	//reset movement variables
 	
 			
 			
@@ -105,6 +132,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 		#region target finding - if (!instance_exists(ship_target))
 		//rescan for target or start the target scan counter
 		//rescan targets after 1 second
+		//ISSUE:  May now be unessecary
 		if (target_scan_counter = 0){
 			target_scan_counter = 60
 		}
@@ -113,6 +141,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 		}
 		target_scan_counter--
 		
+		//find the target
 		if (!instance_exists(ship_target) or ship_target = noone){
 			//find new target
 			enemy_ship_list = ds_list_create()
@@ -235,7 +264,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			}
 						
 		}
-		//exit the loop if there is no target
+		//exit the loop if there is no target, and head back to idle
 		if (!instance_exists(ship_target)){
 			state = pirate_interceptor_1.approaching
 			if (!instance_exists(targeted_squad)){
@@ -295,8 +324,6 @@ When all targers in range of the squad object are destroyed, the ships return to
 								missed_shot_direction = irandom(1)
 								if (missed_shot_direction = 0){
 									accuracy_factor *= -1
-									string_factor = string(accuracy_factor)
-									show_debug_message("slide miss " + string_factor)
 								}
 							}
 						break;
@@ -329,6 +356,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				if (distance_to_object(nearest_enemy_ship) < 25){
 					combat_state = pirate_interceptor_1_combat_state.disengaging
 					ship_target = nearest_enemy_ship
+					//needs to eventually transition to approaching to reacquire the correct target
 				}
 				if (_distance_to_target > weapon_range - 20){
 					combat_state = pirate_interceptor_1_combat_state.jousting
@@ -648,7 +676,6 @@ When all targers in range of the squad object are destroyed, the ships return to
 		if (!instance_exists(ship_target)){
 			state = pirate_interceptor_1.approaching
 			combat_state = pirate_interceptor_1_combat_state.none
-			show_debug_message("line 587 triggers")
 			target_scan_counter = 0
 		}
 	break;
@@ -659,7 +686,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			state = pirate_interceptor_1.approaching
 		}
 		if (instance_exists(ship_target)){
-			move_towards_target(point_direction(x, y, ship_target.x, ship_target.y))
+			
 			_target_direction = ship_target.direction
 			_target_speed = ship_target.speed
 			_distance_to_target = distance_to_object(ship_target)
@@ -669,7 +696,9 @@ When all targers in range of the squad object are destroyed, the ships return to
 			_lead_target_y = ship_target.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
 		
 			_direction_to_lead_target = point_direction(x, y, _lead_target_x, _lead_target_y)
-		
+			
+			move_towards_target(_direction_to_lead_target)
+			
 			if (distance_to_object(ship_target) < 150 and image_angle = _direction_to_lead_target) {
 				//create the net, shoot it
 				var net_ult = instance_create_layer(x, y, "Projectiles", o_net_ult)
@@ -684,6 +713,14 @@ When all targers in range of the squad object are destroyed, the ships return to
 			}
 		}
 		
+	break;
+	
+	case pirate_interceptor_1.disabled:
+		if (stun_counter > 0){
+			speed = .05
+		}
+		
+		show_debug_message("stunned!")
 	break;
 
 }
@@ -713,5 +750,13 @@ if (dodge_counter > 0){
 }
 if (dodge_counter = 0){
 	max_speed = base_max_speed
+}
+
+if (stun_counter > 0){
+	stun_counter--
+	if (stun_counter = 0){
+		state = pirate_interceptor_1.approaching
+		combat_state = pirate_interceptor_1_combat_state.none
+	}
 }
 #endregion

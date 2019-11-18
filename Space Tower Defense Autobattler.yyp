@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "0764ed9d-d0dc-4dfd-b504-076ddbc54e35",
+            "Value": {
+                "id": "6926e6e5-08fb-48af-a8e4-044329241987",
+                "resourcePath": "notes\\code snippets.yy",
+                "resourceType": "GMNotes"
+            }
+        },
+        {
             "Key": "0aa60298-3eff-4523-8917-29adba648250",
             "Value": {
                 "id": "b7fdb545-7efb-4e1b-a135-227fe585e643",
@@ -276,14 +284,6 @@
                 "id": "ac6b3582-198e-41e2-8480-c6a24f799e8d",
                 "resourcePath": "sprites\\s_cannon_shot\\s_cannon_shot.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "4191305b-0a27-492e-b783-747b4a036a27",
-            "Value": {
-                "id": "0668d590-6398-47d8-942b-953cd1d5f69c",
-                "resourcePath": "objects\\o_alien_interceptor_1_enemy1_archived\\o_alien_interceptor_1_enemy1_archived.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -1087,14 +1087,6 @@
             }
         },
         {
-            "Key": "d1f738ba-7528-4a0c-ba44-90f026966ab4",
-            "Value": {
-                "id": "5b70409a-5a2e-4497-a770-b69d80296613",
-                "resourcePath": "objects\\o_alien_interceptor_1_enemy\\o_alien_interceptor_1_enemy.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "d2827810-dcfb-47fa-b5e5-7dbe425b9646",
             "Value": {
                 "id": "fe3e628b-019f-48fd-aefd-ab8433a5a135",
@@ -1123,6 +1115,14 @@
             "Value": {
                 "id": "0fe6cfa2-5143-4f5c-b55c-64e5f0e6ae00",
                 "resourcePath": "objects\\o_plasma_cannon\\o_plasma_cannon.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "ddd78a9b-b98f-47b8-8c3b-e67f64bbfd69",
+            "Value": {
+                "id": "d2bd7199-385f-4306-9381-bc282e0e9a80",
+                "resourcePath": "objects\\o_alien_interceptor_1_enemy\\o_alien_interceptor_1_enemy.yy",
                 "resourceType": "GMObject"
             }
         },

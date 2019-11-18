@@ -117,6 +117,48 @@
             "value": "noone",
             "varName": "paired_squad",
             "varType": 4
+        },
+        {
+            "id": "0be7e093-bbbf-4abc-a0b4-b87432058c06",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "90",
+            "varName": "dodge_chance",
+            "varType": 1
+        },
+        {
+            "id": "ca302160-53cc-40f2-8073-6c0b7f3eecd0",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1.15",
+            "varName": "damage_boost",
+            "varType": 0
+        },
+        {
+            "id": "b961093e-1c01-4b09-b60c-f92ebe1634a4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1.15",
+            "varName": "speed_boost",
+            "varType": 0
         }
     ],
     "solid": false,

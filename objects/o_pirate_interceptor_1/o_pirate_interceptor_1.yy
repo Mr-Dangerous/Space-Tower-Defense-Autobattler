@@ -128,9 +128,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "5",
+            "value": "max_speed*2",
             "varName": "turn_speed",
-            "varType": 0
+            "varType": 4
         },
         {
             "id": "1599fd7a-e2a1-4030-8b71-bc44ec3659e8",
@@ -254,7 +254,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "noone",
             "varName": "targeted_squad",
             "varType": 4
         },
@@ -352,7 +352,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "2",
+            "value": "3",
             "varName": "projectile_damage",
             "varType": 0
         },
@@ -464,7 +464,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "90",
+            "value": "100",
             "varName": "dodge_chance",
             "varType": 1
         },

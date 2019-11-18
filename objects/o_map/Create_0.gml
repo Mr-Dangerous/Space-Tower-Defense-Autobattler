@@ -13,6 +13,7 @@ repeat (14){
 		if (i = 0  and j = 0){
 			instance_destroy(grid_box)
 		}
+		/*
 		//assign prebuilt_emplacements
 		if (i = 1 or i = -1){
 			if (j = -1 or j = 0 or j = 1){
@@ -92,7 +93,7 @@ repeat (14){
 				
 				
 			}
-		}
+		}*/
 		j++
 	}
 	i++

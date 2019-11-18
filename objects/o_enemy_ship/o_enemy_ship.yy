@@ -69,6 +69,20 @@
             "value": "0",
             "varName": "stun_counter",
             "varType": 1
+        },
+        {
+            "id": "059312e3-c7bc-4fea-8ad0-9c883e87cedc",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "pilot",
+            "varType": 4
         }
     ],
     "solid": false,

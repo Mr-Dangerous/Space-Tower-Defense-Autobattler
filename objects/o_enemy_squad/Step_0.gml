@@ -1,9 +1,9 @@
 //pre state machine changes
-if (ship_1 = 0 and
-ship_2 = 0 and
-ship_3 = 0 and
-ship_4 = 0 and
-ship_5 = 0){
+if (ship_1 = noone and
+ship_2 = noone and
+ship_3 = noone and
+ship_4 = noone and
+ship_5 = noone){
 	instance_destroy()
 }
 	

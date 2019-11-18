@@ -1,21 +1,39 @@
-
-/*========================================
+#region  Pre state Machine checks
+/*========================================Good luck!
 Pre state machine checks
 
 This region is for variables that the commanding squad object uses to change the state
 of the ships.  
 
 */
-if (target_acquired = true){
-	state = alien_interceptor_1_enemy.approaching
-	target_acquired = false
-	target_scan_counter = 0
-}
 
+//Check to see if a pilot is attached to this
+//should the pilot be an pbject?  Yes!
+if (instance_exists(pilot) and pilot_attached = false){
+	if (image_xscale = 1.35){
+		pilot_attached = true
+		dodge_chance = pilot.dodge_chance
+		projectile_damage *= pilot.damage_boost
+		max_speed *= pilot.speed_boost
+	}
+	image_xscale += .01
+	image_yscale += .01
+	
+}
+//Use ultimate ability, may want to also check to see if disabled
+//checks to see if disabled via the state check later
+/*
+if (instance_exists(ship_target) and ultimate_energy >= max_ultimate_energy and ultimate_energy !=0){
+	state = alien_interceptor_1_enemy.ultimate
+}
+*/
+
+//Destroy self if hp = dead
 if (hp < 1){
 	instance_destroy()
 }
 
+//Set up saved movement variables, ISSUE:  could just be seperate variable defintions
 turn_speed_previous = turn_speed
 if (turn_speed_counter < 5 and turn_speed_counter > 0){
 	turn_speed /= 2
@@ -24,22 +42,38 @@ if (turn_speed_counter > 0){
 	turn_speed /= 2
 }
 
+//what even is this?
+if (target_acquired = true){
+	state = alien_interceptor_1_enemy.approaching
+	target_acquired = false
+	target_scan_counter = 0
+}
+
+//This section will check for all of the various status effects that can hit the ship and adjust the state accordingly
+//This section is only for disabling effects.
+//ISSUE: Blinds and other such abilities will be handled elsewhere, and not right now.
+//likely will still be in the pre state machine checks
 if (stun_counter > 0){
 	state = alien_interceptor_1_enemy.disabled
 }
-	
+
+
+#endregion
+
 
 #region State Machine
 switch (state){
 #region alien_interceptor_1_enemy.idle
 	case alien_interceptor_1_enemy.idle:
-	//save and set new movement variables.  might want to just make it a new variable.
+	
 	if (instance_exists(ship_target)){
 		state = alien_interceptor_1_enemy.approaching
 	}
+	
+	//save and set new movement variables.  might want to just make it a new variable.
 	turn_speed = turn_speed/2
 	
-	
+	//find formation points
 	_formation_direction_offset_calculated = squad_object.direction + formation_direction_offset
 	if (_formation_direction_offset_calculated < 0){
 		_formation_direction_offset_calculated += 360
@@ -49,14 +83,21 @@ switch (state){
 		
 	_distance_to_formation_point = distance_to_point(_formation_point_x, _formation_point_y)
 	
+	//move into formation.
+	
 	if (_distance_to_formation_point > 0){
 		_direction_to_formation_point = point_direction(x, y,  _formation_point_x, _formation_point_y)
 		move_towards_target(_direction_to_formation_point)
+		//ISSUE:  Whats teh prupose of this?  I think this is a previosu artifact of
+		//the moving into formation attempt
 		if (formation_locked){
 			speed = squad_object.speed
 			}
 			
 	}
+	
+	//lock into formation.  
+	//ISSUE:  ship will just jump to point if the collision mask intersects.  Needs to be smoother
 	if (_distance_to_formation_point = 0){
 		
 		x = _formation_point_x
@@ -69,13 +110,13 @@ switch (state){
 		direction = image_angle
 	}
 	
-	//reset movement variables
-	
 			
 			
 	break;
 
 #endregion
+
+#region old notes
 /*General notes before programming this section
 approaching state is used when a valid target is acquired in range of the squad.
 
@@ -86,11 +127,14 @@ after all other ships are destroyed.
 When all targers in range of the squad object are destroyed, the ships return to idle state.
 
 */
+#endregion
+
 	case alien_interceptor_1_enemy.approaching:
 		//find the appropriate ship target
 		#region target finding - if (!instance_exists(ship_target))
 		//rescan for target or start the target scan counter
 		//rescan targets after 1 second
+		//ISSUE:  May now be unessecary
 		if (target_scan_counter = 0){
 			target_scan_counter = 60
 		}
@@ -99,27 +143,28 @@ When all targers in range of the squad object are destroyed, the ships return to
 		}
 		target_scan_counter--
 		
+		//find the target
 		if (!instance_exists(ship_target) or ship_target = noone){
 			//find new target
-			player_ship_list = ds_list_create()
+			enemy_ship_list = ds_list_create()
 			with(targeted_squad){
 				if (instance_exists(ship_1)){
-					ds_list_add(other.player_ship_list, ship_1)
+					ds_list_add(other.enemy_ship_list, ship_1)
 				}
 				if (instance_exists(ship_2)){
-					ds_list_add(other.player_ship_list, ship_2)
+					ds_list_add(other.enemy_ship_list, ship_2)
 				}
 				if (instance_exists(ship_3)){
-					ds_list_add(other.player_ship_list, ship_3)
+					ds_list_add(other.enemy_ship_list, ship_3)
 				}
 				if (instance_exists(ship_4)){
-					ds_list_add(other.player_ship_list, ship_4)
+					ds_list_add(other.enemy_ship_list, ship_4)
 				}
 				if (instance_exists(ship_5)){
-					ds_list_add(other.player_ship_list, ship_5)
+					ds_list_add(other.enemy_ship_list, ship_5)
 				}
 			}
-			player_ship_list_size = ds_list_size(player_ship_list)
+			enemy_ship_list_size = ds_list_size(enemy_ship_list)
 			//variables for each type of ship class, might change up!
 			var targeted_interceptor = noone
 			var targeted_fighter = noone
@@ -127,8 +172,8 @@ When all targers in range of the squad object are destroyed, the ships return to
 			var targeted_emplacement = noone
 			
 			//This loop will find the closest instance of each kind of ship
-			for (i = 0; i < player_ship_list_size; i++){
-				var target = ds_list_find_value(player_ship_list, i)
+			for (i = 0; i < enemy_ship_list_size; i++){
+				var target = ds_list_find_value(enemy_ship_list, i)
 				
 				if (target.class = "interceptor"){
 					if (targeted_interceptor = noone){
@@ -200,7 +245,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			}
 			
 			//Other overriding commands for targeting (such as ults) could be placed here 
-			ds_list_destroy(player_ship_list)
+			ds_list_destroy(enemy_ship_list)
 		}
 		#endregion
 		
@@ -221,7 +266,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 			}
 						
 		}
-		//exit the loop if there is no target
+		//exit the loop if there is no target, and head back to idle
 		if (!instance_exists(ship_target)){
 			state = alien_interceptor_1_enemy.approaching
 			if (!instance_exists(targeted_squad)){
@@ -264,7 +309,6 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				move_towards_target(_tangent_direction)
 				
-				
 				//set up the attack... this might need to become a script
 				if (fire_counter = fire_rate){
 					
@@ -282,8 +326,6 @@ When all targers in range of the squad object are destroyed, the ships return to
 								missed_shot_direction = irandom(1)
 								if (missed_shot_direction = 0){
 									accuracy_factor *= -1
-									string_factor = string(accuracy_factor)
-									show_debug_message("slide miss " + string_factor)
 								}
 							}
 						break;
@@ -312,8 +354,11 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				
 				//disengage
-				if (_distance_to_target < 25){
+				var nearest_enemy_ship = instance_nearest(x, y, o_enemy_ship)
+				if (distance_to_object(nearest_enemy_ship) < 25){
 					combat_state = alien_interceptor_1_enemy_combat_state.disengaging
+					ship_target = nearest_enemy_ship
+					//needs to eventually transition to approaching to reacquire the correct target
 				}
 				if (_distance_to_target > weapon_range - 20){
 					combat_state = alien_interceptor_1_enemy_combat_state.jousting
@@ -340,6 +385,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 					_tangent_direction += 359
 				}
 				move_towards_target(_tangent_direction)
+				
 				//set up the attack... this might need to become a script
 				if (fire_counter = fire_rate){
 					
@@ -347,6 +393,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 					_random_seed = irandom(1)
 					switch(_random_seed){
 						case 0:
+						show_debug_message("slide_attack")
 							combat_state = alien_interceptor_1_enemy_combat_state.slide_attack
 							accuracy_factor = 1
 							missed_shot_direction = 0
@@ -358,12 +405,13 @@ When all targers in range of the squad object are destroyed, the ships return to
 								if (missed_shot_direction = 0){
 									accuracy_factor *= -1
 									string_factor = string(accuracy_factor)
-									show_debug_message("slide miss " + string_factor)
+								
 								}
 							}
 						break;
 						
 						case 1:
+						show_debug_message("straight_on_attack")
 							combat_state = alien_interceptor_1_enemy_combat_state.straight_on_attack
 							accuracy_factor = 1
 							missed_shot_direction = 0
@@ -374,7 +422,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 								if (missed_shot_direction = 0){
 									accuracy_factor *= -1
 									string_factor = string(accuracy_factor)
-									show_debug_message("straight on miss " + string_factor)
+									
 								}
 							}
 						break;
@@ -387,10 +435,10 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				
 				//disengage
-				var nearest_player_ship = instance_nearest(x, y, o_player_ship)
-				if (distance_to_object(nearest_player_ship) < 25){
+				var nearest_enemy_ship = instance_nearest(x, y, o_enemy_ship)
+				if (distance_to_object(nearest_enemy_ship) < 25){
 					combat_state = alien_interceptor_1_enemy_combat_state.disengaging
-					ship_target = nearest_player_ship
+					ship_target = nearest_enemy_ship
 				}
 				if (_distance_to_target > weapon_range - 20){
 					combat_state = alien_interceptor_1_enemy_combat_state.jousting
@@ -398,7 +446,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				}
 				if (_distance_to_target > engagement_range and distance_to_object(squad_object) < 200){
 					combat_state = alien_interceptor_1_enemy_combat_state.none
-					state = iron_interceptor_1.approaching
+					state = alien_interceptor_1_enemy.approaching
 				}
 				
 				if (distance_to_object(squad_object) > 200){
@@ -568,6 +616,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 				
 				#region disengaging
 				case alien_interceptor_1_enemy_combat_state.disengaging:
+					
 					if (manuever_counter == 0){
 						manuever_counter = irandom_range(20, 50)
 					}
@@ -589,7 +638,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 						
 					_direction_from_target = point_direction(ship_target.x, ship_target.y, x, y)
 					move_towards_target(_direction_from_target)
-					manuever_counter--
+					
 					if (manuever_counter = 1){
 						state = alien_interceptor_1_enemy.approaching
 						combat_state = alien_interceptor_1_enemy_combat_state.none
@@ -674,10 +723,12 @@ When all targers in range of the squad object are destroyed, the ships return to
 		//return back to approaching or idle state
 		if (!instance_exists(ship_target)){
 			state = alien_interceptor_1_enemy.approaching
-			show_debug_message("line 587 triggers")
+			combat_state = alien_interceptor_1_enemy_combat_state.none
 			target_scan_counter = 0
 		}
 	break;
+	
+	//ultimate would normally go here
 	
 	case alien_interceptor_1_enemy.disabled:
 		if (stun_counter > 0){
@@ -691,6 +742,7 @@ When all targers in range of the squad object are destroyed, the ships return to
 #endregion
 
 //Post State machine checks (including counters)
+#region post statemachine checks
 if (fire_counter < fire_rate){
 	fire_counter++
 }
@@ -705,6 +757,16 @@ if (turn_speed != turn_speed_previous){
 	turn_speed = turn_speed_previous
 }
 
+if (dodge_counter > 0){
+	dodge_counter--
+	if (max_speed > base_max_speed){
+		max_speed -= .05
+	}
+}
+if (dodge_counter = 0){
+	max_speed = base_max_speed
+}
+
 if (stun_counter > 0){
 	stun_counter--
 	if (stun_counter = 0){
@@ -712,4 +774,4 @@ if (stun_counter > 0){
 		combat_state = alien_interceptor_1_enemy_combat_state.none
 	}
 }
-
+#endregion
