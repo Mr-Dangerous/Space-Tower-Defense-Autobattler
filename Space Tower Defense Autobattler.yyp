@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "08afcdcf-9bf9-4794-8d9b-661152405a83",
+            "Value": {
+                "id": "f7eec5f9-172c-4ad6-bcbc-bdd8f85c7d3f",
+                "resourcePath": "sprites\\s_empty_card\\s_empty_card.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0aa60298-3eff-4523-8917-29adba648250",
             "Value": {
                 "id": "b7fdb545-7efb-4e1b-a135-227fe585e643",
@@ -719,6 +727,14 @@
             }
         },
         {
+            "Key": "8b093263-b968-4998-8236-1c9a62df0114",
+            "Value": {
+                "id": "354bec58-9385-45b7-8a50-a7d8aa57c7e9",
+                "resourcePath": "objects\\o_card\\o_card.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8f96860b-1403-43a3-842a-8cbd78241cda",
             "Value": {
                 "id": "8235d55a-a89b-4ebb-9287-c7889556e3da",
@@ -764,6 +780,14 @@
                 "id": "2bc330b4-9893-4eba-a05d-36ff216ff00b",
                 "resourcePath": "sprites\\s_pirate_ship_interceptor_1_resized\\s_pirate_ship_interceptor_1_resized.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "960da4d0-b924-40f4-a169-8c143ff676c4",
+            "Value": {
+                "id": "22083556-f0c2-4e94-b6c4-f51bf124878c",
+                "resourcePath": "objects\\o_pirate_interceptor_1_card\\o_pirate_interceptor_1_card.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -847,6 +871,14 @@
             }
         },
         {
+            "Key": "9fa8ebf8-b1d1-4e5f-bab1-0a17ffa1e483",
+            "Value": {
+                "id": "911c90ab-8c29-4342-8c16-07d239fc531a",
+                "resourcePath": "objects\\o_card_empty\\o_card_empty.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a181ef65-2350-4883-9021-f11426bb0b81",
             "Value": {
                 "id": "f88c6d57-551e-4871-8c46-750a52cba95e",
@@ -884,6 +916,14 @@
                 "id": "8041717f-9669-40a0-a97a-4816308929ee",
                 "resourcePath": "scripts\\limit_speed\\limit_speed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a7bf8eb6-e746-4d15-a738-76791bb13b0a",
+            "Value": {
+                "id": "258f165a-acb5-482f-9f87-228e3101f8c0",
+                "resourcePath": "objects\\o_card_game\\o_card_game.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1204,6 +1244,14 @@
                 "id": "7f2d41e0-3781-4357-9252-4821b35856a8",
                 "resourcePath": "views\\edae41c1-eaf5-418c-8815-0de447582d1d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "ef5bd149-a807-4036-a102-2f10fbb76049",
+            "Value": {
+                "id": "f40a72b3-a41c-44c0-bf02-83d86de4048a",
+                "resourcePath": "sprites\\s_pirate_ship_interceptor_1_card\\s_pirate_ship_interceptor_1_card.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

@@ -1,5 +1,5 @@
-
-
+#region deprecated
+/*  SCROLLING
 a_zoom_level[0] = 1.1
 a_zoom_level[1] = 1.2
 a_zoom_level[2] = 1.3
@@ -14,3 +14,5 @@ zoom = array_get(a_zoom_level, zoom_level)
 if (cps!=0){
 	cookie_script(cps)
 }
+*/
+#endregion
