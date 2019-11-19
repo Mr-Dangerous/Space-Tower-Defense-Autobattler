@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "0ec817b9-d5bd-4622-b345-7c4bbefca001",
+            "Value": {
+                "id": "e15a37a6-97d1-4b3b-9d6d-2686f1de0124",
+                "resourcePath": "views\\0ec817b9-d5bd-4622-b345-7c4bbefca001.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "132fc41b-ba5e-47ff-bb20-b47e0f11a682",
             "Value": {
                 "id": "c71c32c1-51c6-4acd-8789-4f8b9fc70641",
@@ -1028,6 +1036,14 @@
                 "id": "720f9001-63fb-4f7c-aa9f-e189bb1cd835",
                 "resourcePath": "sprites\\s_alien_interceptor_2\\s_alien_interceptor_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c9945d77-017b-4e69-9f48-4a3275347811",
+            "Value": {
+                "id": "55fc7a96-e9f8-40b1-9af2-ca316f7a9566",
+                "resourcePath": "views\\c9945d77-017b-4e69-9f48-4a3275347811.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
