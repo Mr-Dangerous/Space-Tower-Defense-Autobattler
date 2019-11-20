@@ -262,8 +262,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "True",
+            "value": "False",
             "varName": "cards_dealt",
+            "varType": 3
+        },
+        {
+            "id": "95cdd510-7c7a-4658-a365-8517905e1ca0",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "spawn_cards",
             "varType": 3
         }
     ],
