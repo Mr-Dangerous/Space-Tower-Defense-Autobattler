@@ -1,20 +1,28 @@
 {
-    "id": "eba378d5-708c-480b-9a84-724311b219a2",
+    "id": "4cb5dac9-d167-48a8-aab7-5671f6e6c9ea",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_alien_interceptor_1_hangar",
+    "name": "o_iron_fighter_1_hangar",
     "eventList": [
         
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
         {
-            "id": "6f9d6de0-ed01-4a1c-8599-97b93fb5b338",
+            "id": "b08cfe87-6330-46c8-8141-9260b8f9a473",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "aba2d8d7-809f-44cf-b25e-03687e33114e",
+            "propertyId": "c19b407e-dbce-4a39-b104-e2bd3b0cd6ac",
+            "value": "2.3"
+        },
+        {
+            "id": "4b6183a4-2765-4e33-8e83-fe94a0bcbf9d",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",
             "objectId": "aba2d8d7-809f-44cf-b25e-03687e33114e",
             "propertyId": "0b03f3e1-f0c7-4736-9f54-00631a4ba0ed",
-            "value": "o_alien_interceptor_1"
+            "value": "o_iron_fighter_1"
         }
     ],
     "parentObjectId": "aba2d8d7-809f-44cf-b25e-03687e33114e",
@@ -35,6 +43,6 @@
         
     ],
     "solid": false,
-    "spriteId": "712126ba-a536-4b4e-a402-545b48a0c37b",
+    "spriteId": "79dd0d3b-bd32-4b41-b6d2-cc96886d3a8b",
     "visible": true
 }

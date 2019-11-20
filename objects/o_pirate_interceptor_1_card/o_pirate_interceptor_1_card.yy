@@ -22,7 +22,7 @@
             "mvc": "1.0",
             "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
             "propertyId": "d0193cba-687f-42db-863e-faaf151b75c6",
-            "value": "Pirate Interceptor 1 Alpha"
+            "value": "Gattle B-70"
         },
         {
             "id": "b130be66-a00f-4f78-87da-bddf2df637f4",
@@ -55,6 +55,14 @@
             "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
             "propertyId": "2ed6db73-99fa-4750-8125-309c6c4be37d",
             "value": "o_pirate_interceptor_1_hangar"
+        },
+        {
+            "id": "80d55f6a-bbcd-4d2d-b2a7-3a45bb2678b1",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
+            "propertyId": "2902c89d-ed4a-4aff-9681-8e0881e9ea38",
+            "value": "o_pirate_interceptor_1"
         }
     ],
     "parentObjectId": "8b093263-b968-4998-8236-1c9a62df0114",

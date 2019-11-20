@@ -185,7 +185,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "instance_find(o_hangar, 0)",
-            "varName": "hangar_object",
+            "varName": "hangar",
             "varType": 4
         },
         {
@@ -200,6 +200,20 @@
             "resourceFilter": 1023,
             "value": "0",
             "varName": "hangar_resource",
+            "varType": 5
+        },
+        {
+            "id": "2902c89d-ed4a-4aff-9681-8e0881e9ea38",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "final_ship_resource",
             "varType": 5
         }
     ],

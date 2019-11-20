@@ -6,13 +6,17 @@ if (cards_dealt = false){
 	cards_dealt = true
 	for (i = 0; i < 5; i++){
 		//this will obviosuly be different later, needs to work with stacks
-		var (_random) = irandom(1)
+		var (_random) = irandom(2)
 		switch (_random){
 			case 0:
 			var random_card = o_pirate_interceptor_1_card
 			break;
 			case 1:
 			var random_card = o_alien_interceptor_1_card
+			break;
+			case 2:
+			var random_card = o_iron_fighter_1_card
+			break;
 		}
 		
 		card_slots[i, 1] = random_card

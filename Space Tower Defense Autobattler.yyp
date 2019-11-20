@@ -287,6 +287,14 @@
             }
         },
         {
+            "Key": "3550b5cc-2495-4121-a6aa-8e2215e8355e",
+            "Value": {
+                "id": "06ab87e1-47b4-45e3-ad24-dc423fc5c9d0",
+                "resourcePath": "objects\\o_iron_fighter_1\\o_iron_fighter_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "355e71a9-1ecd-44d2-9c41-ca6c10a03e56",
             "Value": {
                 "id": "45615d4e-0bf8-4984-a56a-415ab6352262",
@@ -411,6 +419,14 @@
             "Value": {
                 "id": "b098ace9-b660-489c-bc3b-1b3ec086e523",
                 "resourcePath": "objects\\o_bio_ball_destroyed\\o_bio_ball_destroyed.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "4cb5dac9-d167-48a8-aab7-5671f6e6c9ea",
+            "Value": {
+                "id": "287c7d00-25c9-495b-a01d-ff35f331398e",
+                "resourcePath": "objects\\o_iron_fighter_1_hangar\\o_iron_fighter_1_hangar.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1412,6 +1428,14 @@
                 "id": "d3e2f18a-6434-4645-8940-02b8ec0518bc",
                 "resourcePath": "sprites\\s_pirate_capital_ship_attack_2\\s_pirate_capital_ship_attack_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fa87cacb-1600-4032-ad4f-d2913bb4f386",
+            "Value": {
+                "id": "c9f9237f-f217-4103-8705-cfbb4426afec",
+                "resourcePath": "objects\\o_iron_fighter_1_card\\o_iron_fighter_1_card.yy",
+                "resourceType": "GMObject"
             }
         },
         {
