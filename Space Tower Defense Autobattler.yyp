@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "037684cf-77ee-41c2-bbaf-908286a63197",
+            "Value": {
+                "id": "2893ab90-80f5-4bb5-8fb0-bb8d4e9da0cb",
+                "resourcePath": "sprites\\s_alien_interceptor_1_card\\s_alien_interceptor_1_card.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "06d76800-cec7-44a1-a595-0530dc05c7a0",
             "Value": {
                 "id": "e2a0cf74-c9df-46d9-ae5d-2a4902ed7683",
@@ -1148,6 +1156,14 @@
                 "id": "fe3e628b-019f-48fd-aefd-ab8433a5a135",
                 "resourcePath": "views\\d2827810-dcfb-47fa-b5e5-7dbe425b9646.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d5256db5-aded-451c-8c31-a88ea19da465",
+            "Value": {
+                "id": "fc070493-853e-462a-bb28-ef4edcb7d0ee",
+                "resourcePath": "objects\\o_alien_interceptor_1_card\\o_alien_interceptor_1_card.yy",
+                "resourceType": "GMObject"
             }
         },
         {
