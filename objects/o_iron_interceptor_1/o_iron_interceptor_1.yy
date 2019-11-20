@@ -23,11 +23,21 @@
             "enumb": 0,
             "eventtype": 3,
             "m_owner": "8f96860b-1403-43a3-842a-8cbd78241cda"
+        },
+        {
+            "id": "8e1aa9e8-9d66-4d56-a43b-057f90f40c33",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 32,
+            "eventtype": 9,
+            "m_owner": "8f96860b-1403-43a3-842a-8cbd78241cda"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "bee9d98a-e631-4685-b169-4aa9a3025427",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -309,7 +319,7 @@
             "varType": 1
         },
         {
-            "id": "fc292976-2e66-4157-87a9-521cb44650c5",
+            "id": "ec4c5992-9297-4e0f-b569-b3a8a60bbf85",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -319,22 +329,8 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "noone",
-            "varName": "target_override",
+            "varName": "assigned_grid_space",
             "varType": 4
-        },
-        {
-            "id": "087b9d5f-53d3-4748-87f6-af89ba9843f4",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "1",
-            "varName": "escort_number",
-            "varType": 1
         }
     ],
     "solid": false,
