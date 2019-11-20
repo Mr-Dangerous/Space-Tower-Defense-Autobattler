@@ -65,7 +65,7 @@
             "isLocked": false,
             "name": "default",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "c8d427f9-4697-4a64-810f-70e6963a257b",
@@ -76,7 +76,7 @@
             "isLocked": false,
             "name": "Card Information",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "d3d466e6-ec2b-4b8f-a865-1cd2e365c119",
