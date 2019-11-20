@@ -173,6 +173,34 @@
             "value": "2",
             "varName": "graphic_scale",
             "varType": 0
+        },
+        {
+            "id": "e8656db9-afd3-4224-a12d-a16a0555e893",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "instance_find(o_hangar, 0)",
+            "varName": "hangar_object",
+            "varType": 4
+        },
+        {
+            "id": "2ed6db73-99fa-4750-8125-309c6c4be37d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "hangar_resource",
+            "varType": 5
         }
     ],
     "solid": false,

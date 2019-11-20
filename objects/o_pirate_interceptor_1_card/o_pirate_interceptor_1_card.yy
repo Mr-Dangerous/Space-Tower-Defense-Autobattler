@@ -47,6 +47,14 @@
             "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
             "propertyId": "c6b08031-f394-4753-b7f1-cb4c7b1be828",
             "value": "s_pirate_ship_interceptor_1_resized"
+        },
+        {
+            "id": "707f857d-3472-4fab-bd95-4d9f1f2d3858",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
+            "propertyId": "2ed6db73-99fa-4750-8125-309c6c4be37d",
+            "value": "o_pirate_interceptor_1_hangar"
         }
     ],
     "parentObjectId": "8b093263-b968-4998-8236-1c9a62df0114",

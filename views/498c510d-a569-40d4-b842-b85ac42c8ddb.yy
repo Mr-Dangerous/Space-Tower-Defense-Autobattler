@@ -4,7 +4,9 @@
     "mvc": "1.1",
     "name": "498c510d-a569-40d4-b842-b85ac42c8ddb",
     "children": [
-        
+        "1df8f875-116e-4b94-9306-b1351b478d92",
+        "eba378d5-708c-480b-9a84-724311b219a2",
+        "aba2d8d7-809f-44cf-b25e-03687e33114e"
     ],
     "filterType": "GMObject",
     "folderName": "Hangar Resources",

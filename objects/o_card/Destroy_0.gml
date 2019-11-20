@@ -5,3 +5,5 @@ if (instance_exists(card_game_rules_manager)){
 	
 }
 instance_create_layer(x, y, "Empty_Cards", o_card_empty)
+
+
