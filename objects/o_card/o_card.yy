@@ -33,6 +33,16 @@
             "enumb": 0,
             "eventtype": 0,
             "m_owner": "8b093263-b968-4998-8236-1c9a62df0114"
+        },
+        {
+            "id": "d14fd71b-1a77-42f7-8587-770e066d930a",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "8b093263-b968-4998-8236-1c9a62df0114"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -149,6 +159,20 @@
             "value": "0",
             "varName": "card_graphic",
             "varType": 5
+        },
+        {
+            "id": "9069c321-cf86-4683-b4cb-41ecba71b3c1",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "2",
+            "varName": "graphic_scale",
+            "varType": 0
         }
     ],
     "solid": false,

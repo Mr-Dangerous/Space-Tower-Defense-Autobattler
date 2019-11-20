@@ -4,16 +4,7 @@
     "mvc": "1.0",
     "name": "o_pirate_interceptor_1_card",
     "eventList": [
-        {
-            "id": "77142b2a-212b-4d88-a110-77f653f5fd8c",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "960da4d0-b924-40f4-a169-8c143ff676c4"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
@@ -72,8 +63,10 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
-    "properties": null,
+    "properties": [
+        
+    ],
     "solid": false,
-    "spriteId": "ef5bd149-a807-4036-a102-2f10fbb76049",
+    "spriteId": "094665e0-0dba-45f2-bc1c-1adbef6a7502",
     "visible": true
 }

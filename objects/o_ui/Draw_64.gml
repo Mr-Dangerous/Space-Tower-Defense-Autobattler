@@ -1,7 +1,7 @@
 view_port_height = view_get_hport(0)
 view_port_width = view_get_wport(0)
 
-draw_set_alpha(.2)
+draw_set_alpha(.4)
 //left side GUI - placeholder
 draw_rectangle_color(4,4, 220,view_port_height-4,c_gray, c_gray, c_gray, c_gray, false)
 

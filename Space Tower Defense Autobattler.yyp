@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "05896691-581c-4c1e-b913-0f12c0e3aef5",
+            "Value": {
+                "id": "7e4fb47b-c70c-4671-877c-4f70625ddcff",
+                "resourcePath": "views\\05896691-581c-4c1e-b913-0f12c0e3aef5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "06d76800-cec7-44a1-a595-0530dc05c7a0",
             "Value": {
                 "id": "e2a0cf74-c9df-46d9-ae5d-2a4902ed7683",
@@ -75,6 +83,14 @@
             "Value": {
                 "id": "f7eec5f9-172c-4ad6-bcbc-bdd8f85c7d3f",
                 "resourcePath": "sprites\\s_empty_card\\s_empty_card.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "094665e0-0dba-45f2-bc1c-1adbef6a7502",
+            "Value": {
+                "id": "54373b97-bdf3-4c34-b631-7201dc5d87cb",
+                "resourcePath": "sprites\\s_card_border_1\\s_card_border_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -156,6 +172,14 @@
                 "id": "ec88e74c-8327-4c5a-bacb-733c71a95069",
                 "resourcePath": "scripts\\assign_ships_squad_target\\assign_ships_squad_target.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "1d48125b-aef2-4a62-8d3f-6670ee1d7ecd",
+            "Value": {
+                "id": "f07da27d-6221-4d05-871b-b1a4353bfa39",
+                "resourcePath": "sprites\\s_card_border_5\\s_card_border_5.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -348,6 +372,14 @@
                 "id": "8949a5b6-0767-4792-9dcb-66e1b57b8b86",
                 "resourcePath": "sprites\\s_projectile_leader\\s_projectile_leader.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "498c510d-a569-40d4-b842-b85ac42c8ddb",
+            "Value": {
+                "id": "5184642c-ccbd-426f-a19f-5f1e712c1851",
+                "resourcePath": "views\\498c510d-a569-40d4-b842-b85ac42c8ddb.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -548,6 +580,14 @@
                 "id": "238fa002-f30c-4e9c-bfde-58a903882eda",
                 "resourcePath": "views\\65b4c33f-1888-4c60-97b5-a06756f4e08a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "688b15fe-247b-4bf6-a56c-97b313c7c524",
+            "Value": {
+                "id": "34d074b7-157a-465e-838a-4c2c52f3eeae",
+                "resourcePath": "sprites\\s_card_border_2\\s_card_border_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1087,6 +1127,14 @@
             }
         },
         {
+            "Key": "c854815d-a264-4def-a67e-27cfcdae9b72",
+            "Value": {
+                "id": "20636f22-9709-46af-a4ef-0c7cdc6840d7",
+                "resourcePath": "sprites\\s_card_border_4\\s_card_border_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c94556d1-5f3a-4cf4-a909-25c0781720ce",
             "Value": {
                 "id": "720f9001-63fb-4f7c-aa9f-e189bb1cd835",
@@ -1199,6 +1247,14 @@
             }
         },
         {
+            "Key": "dc68b176-5a13-497a-8de2-bf734dcfc0f3",
+            "Value": {
+                "id": "90b4d20f-e8ce-4327-93ba-b8ab1ca74942",
+                "resourcePath": "sprites\\s_card_border_3\\s_card_border_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ddd78a9b-b98f-47b8-8c3b-e67f64bbfd69",
             "Value": {
                 "id": "d2bd7199-385f-4306-9381-bc282e0e9a80",
@@ -1276,14 +1332,6 @@
                 "id": "7f2d41e0-3781-4357-9252-4821b35856a8",
                 "resourcePath": "views\\edae41c1-eaf5-418c-8815-0de447582d1d.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "ef5bd149-a807-4036-a102-2f10fbb76049",
-            "Value": {
-                "id": "f40a72b3-a41c-44c0-bf02-83d86de4048a",
-                "resourcePath": "sprites\\s_pirate_ship_interceptor_1_card\\s_pirate_ship_interceptor_1_card.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
