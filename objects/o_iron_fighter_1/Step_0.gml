@@ -1,4 +1,4 @@
-/// @description Insert description here
+
 // You can write your code in this editor
 /*
 iron_fighter_1{
@@ -85,6 +85,7 @@ switch(state){
 			
 			#region vs interceptor
 			case "interceptor":
+			//Find the lead target and face it and fire upon it
 				_target_direction = target_ship.direction
 				_target_speed = target_ship.speed
 				_distance_to_target = distance_to_object(target_ship)
@@ -94,9 +95,10 @@ switch(state){
 				_lead_target_y = target_ship.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
 				_lead_target_direction = point_direction(x, y, _lead_target_x, _lead_target_y)
 				
-				face_target(_target_direction)
+				face_target(_lead_target_direction)
+				direction = image_angle
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) < 15 and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
@@ -104,22 +106,129 @@ switch(state){
 						direction = image_angle
 						damage = other.projectile_damage
 					}	
+					fire_counter = 0
 				}
+				if (distance_to_object(target_ship) < (weapon_range*.75)){
+					speed -= acceleration_rate
+				} else {
+					speed += acceleration_rate
+				}
+				
+				//change targets if it leaves range
+				if (distance_to_object(target_ship > weapon_range)){
+					state = iron_fighter_1.approaching
+				}
+					
+				
+				
+			// move around the target
+			//I'll handle movement later
+				
 			break;
 			#endregion
 			
 			#region vs fighters
 			case "fighter":
-			
+				_target_direction = target_ship.direction
+				_target_speed = target_ship.speed
+				_distance_to_target = distance_to_object(target_ship)
+				_projectile_flight_time = _distance_to_target/projectile_speed
+					
+				_lead_target_x = target_ship.x + lengthdir_x((_target_speed * _projectile_flight_time), _target_direction)
+				_lead_target_y = target_ship.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
+				_lead_target_direction = point_direction(x, y, _lead_target_x, _lead_target_y)
+				
+				face_target(_lead_target_direction)
+				direction = image_angle
+				//Fire on target if ready and allowed
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other._lead_target_direction
+						direction = image_angle
+						damage = other.projectile_damage
+					}	
+					fire_counter = 0
+				}
+				if (distance_to_object(target_ship) < (weapon_range*.75)){
+					speed -= acceleration_rate
+				} else {
+					speed += acceleration_rate
+				}
+				
+				//change targets if it leaves range
+				if (distance_to_object(target_ship > weapon_range)){
+					state = iron_fighter_1.approaching
+				}
 			break;
 			#endregion
 			
 			#region vs frigates
 			case "frigate":
+				if (distance_to_object(target_ship) < ordinance_range){
+					ordinance_counter++
+				} else {
+					ordinance_counter = 0
+				}
+			
+				_target_direction = target_ship.direction
+				_target_speed = target_ship.speed
+				_distance_to_target = distance_to_object(target_ship)
+				_projectile_flight_time = _distance_to_target/projectile_speed
+					
+				_lead_target_x = target_ship.x + lengthdir_x((_target_speed * _projectile_flight_time), _target_direction)
+				_lead_target_y = target_ship.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
+				_lead_target_direction = point_direction(x, y, _lead_target_x, _lead_target_y)
+				
+				face_target(_lead_target_direction)
+				direction = image_angle
+				//Fire on target if ready and allowed
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
+					with (_projectile){
+						speed = other.projectile_speed
+						image_angle = other._lead_target_direction
+						direction = image_angle
+						damage = other.projectile_damage
+					}	
+					fire_counter = 0
+				}
+				//fire ordinance 
+				if (ordinance_ammo > 0){
+					if (image_angle = _lead_target_direction and ordinance_counter = ordinance_fire_rate){
+						var _ordinance = instance_create_layer(x, y, "Projectiles", ordinance_type)
+						with (_ordinance){
+							speed = other.ordinance_speed
+							image_angle = other._lead_target_direction
+							direction = image_angle
+							damage = other.ordinance_damage
+						}	
+						ordinance_counter = 0
+						ordinance_ammo--
+					}
+				}
+				
+				//move towards target
+				if (ordinance_ammo = 0){
+					if (distance_to_object(target_ship) < (weapon_range*.75)){
+						speed -= acceleration_rate
+					} else {
+						speed += acceleration_rate
+					}
+				}
+				if (ordinance_ammo != 0){
+					if (distance_to_object(target_ship) < (ordinance_range*.75)){
+						speed -= acceleration_rate
+					} else {
+						speed += acceleration_rate
+					}
+				}
+			
 			
 			break;
 			#endregion
-		
+			
 		}
 	}
 	break;
@@ -133,4 +242,5 @@ if (idle_turning_counter > 0){
 if (fire_counter < fire_rate){
 	fire_counter++
 }
+clamp(speed, 0, max_speed)
 #endregion

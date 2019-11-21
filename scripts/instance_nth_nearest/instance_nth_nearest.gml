@@ -1,3 +1,7 @@
+//@param x
+//@param y
+//@param object
+//@param nth
 /// instance_nth_nearest(x,y,obj,n)
 //
 //  Returns the id of the nth nearest instance of an object
