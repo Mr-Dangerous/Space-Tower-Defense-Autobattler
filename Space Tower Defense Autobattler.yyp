@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "04539756-2917-4812-a595-f4bc859ebf8b",
+            "Value": {
+                "id": "622110a6-6b43-4acf-8067-fe34b45c97b3",
+                "resourcePath": "objects\\o_player_squad\\o_player_squad.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "05896691-581c-4c1e-b913-0f12c0e3aef5",
             "Value": {
                 "id": "7e4fb47b-c70c-4671-877c-4f70625ddcff",
@@ -226,7 +234,7 @@
             "Key": "261e3632-93a3-4394-8db0-9e2d08778188",
             "Value": {
                 "id": "a0e78570-d2a1-4d5c-a37a-a34c503f0b22",
-                "resourcePath": "objects\\o_enemy_squad\\o_enemy_squad.yy",
+                "resourcePath": "objects\\o_enemy_squad_a\\o_enemy_squad_a.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -298,15 +306,7 @@
             "Key": "3550b5cc-2495-4121-a6aa-8e2215e8355e",
             "Value": {
                 "id": "06ab87e1-47b4-45e3-ad24-dc423fc5c9d0",
-                "resourcePath": "objects\\o_iron_fighter_1\\o_iron_fighter_1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "355e71a9-1ecd-44d2-9c41-ca6c10a03e56",
-            "Value": {
-                "id": "45615d4e-0bf8-4984-a56a-415ab6352262",
-                "resourcePath": "objects\\o_enemy_interceptor_ph\\o_enemy_interceptor_ph.yy",
+                "resourcePath": "objects\\o_iron_fighter_1_player\\o_iron_fighter_1_player.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -388,6 +388,14 @@
                 "id": "c5de67d4-4411-466a-9e22-8056ced21206",
                 "resourcePath": "views\\463cb071-ea73-4610-bc80-6d125cacd65b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "479cec45-4ad0-4bf7-941e-31206ff6ea6b",
+            "Value": {
+                "id": "ba74eab5-5ca1-493c-ae37-7e03b5ee8340",
+                "resourcePath": "objects\\o_iron_fighter_1_enemy\\o_iron_fighter_1_enemy.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1098,7 +1106,7 @@
             "Key": "ba0790fb-5806-4910-8166-7fa8c7c85659",
             "Value": {
                 "id": "b6fabf1d-16f7-4a8b-9b5f-2f375ee5e9eb",
-                "resourcePath": "objects\\o_player_squad\\o_player_squad.yy",
+                "resourcePath": "objects\\o_player_squad_a\\o_player_squad_a.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1271,6 +1279,14 @@
             }
         },
         {
+            "Key": "d69b99b1-ccb6-41e8-82db-ac779214b425",
+            "Value": {
+                "id": "d52dde7b-3e76-41c2-9fe1-9fb55d6bafd4",
+                "resourcePath": "objects\\o_enemy_squad\\o_enemy_squad.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d75617b7-1005-43c7-9bed-891ca05ebc2d",
             "Value": {
                 "id": "3f28a392-5a4d-4d37-8226-82b59c460a32",
@@ -1402,7 +1418,7 @@
             "Key": "f1d6dd9f-ecfc-44ea-8fe4-d4a660dd708d",
             "Value": {
                 "id": "5b09c929-5388-4e61-ad9c-d9d8e4db008b",
-                "resourcePath": "objects\\o_player_corvette\\o_player_corvette.yy",
+                "resourcePath": "objects\\o_player_frigate\\o_player_frigate.yy",
                 "resourceType": "GMObject"
             }
         },

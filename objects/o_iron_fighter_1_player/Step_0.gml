@@ -22,15 +22,19 @@ will change based on what it's fighting.
 
 #region prestatemachine
 //turn speed lowers as ship gets closer to max_speed
-var speed_differece = max_speed - speed
-//I'll figure this out later
+turn_speed = max_turn_speed - (speed/max_speed)
+//Does this work?
+if (armor < 1){
+	instance_destroy()
+}
+
 
 #endregion
 
 #region State Machine
 
 switch(state){
-	case iron_fighter_1.planning:
+	case iron_fighter_1_player.planning:
 		x = assigned_grid_space.x
 		y = assigned_grid_space.y
 		//slowly rotate while idle, but facing enemy.  equivalent of idle animations
@@ -56,25 +60,25 @@ switch(state){
 		}
 	break;
 	
-	case iron_fighter_1.approaching:
+	case iron_fighter_1_player.approaching:
 		target_ship = instance_nearest(x, y, o_enemy_ship)
 		
 		if (!instance_exists(target_ship)){
-			state = iron_fighter_1.planning
+			state = iron_fighter_1_player.planning
 			//reset everything!
 			exit;
 		}
 		
-		if (distance_to_object(target_ship) < attack_range){
-			state = iron_fighter_1.engaging
+		if (distance_to_object(target_ship) < weapon_range){
+			state = iron_fighter_1_player.engaging
 		}
 		var _direction_to_target = point_direction(x, y, target_ship.x, target_ship.y)
 		move_towards_target(_direction_to_target)
 	break;
 	
-	case iron_fighter_1.engaging:
+	case iron_fighter_1_player.engaging:
 	if (!instance_exists(target_ship)){
-		state = iron_fighter_1.approaching
+		state = iron_fighter_1_player.approaching
 		exit;
 	}
 	if (instance_exists(target_ship)){
@@ -98,13 +102,14 @@ switch(state){
 				face_target(_lead_target_direction)
 				direction = image_angle
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter >= fire_rate and distance_to_point(_lead_target_x, _lead_target_y)<weapon_range){
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other._lead_target_direction
 						direction = image_angle
 						damage = other.projectile_damage
+						projectile_damage_type = other.projectile_damage_type
 					}	
 					fire_counter = 0
 				}
@@ -116,7 +121,7 @@ switch(state){
 				
 				//change targets if it leaves range
 				if (distance_to_object(target_ship > weapon_range)){
-					state = iron_fighter_1.approaching
+					state = iron_fighter_1_player.approaching
 				}
 					
 				
@@ -141,13 +146,14 @@ switch(state){
 				face_target(_lead_target_direction)
 				direction = image_angle
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter >= fire_rate and distance_to_point(_lead_target_x, _lead_target_y)<weapon_range){
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other._lead_target_direction
 						direction = image_angle
 						damage = other.projectile_damage
+						projectile_damage_type = other.projectile_damage_type
 					}	
 					fire_counter = 0
 				}
@@ -159,7 +165,7 @@ switch(state){
 				
 				//change targets if it leaves range
 				if (distance_to_object(target_ship > weapon_range)){
-					state = iron_fighter_1.approaching
+					state = iron_fighter_1_player.approaching
 				}
 			break;
 			#endregion
@@ -184,13 +190,14 @@ switch(state){
 				face_target(_lead_target_direction)
 				direction = image_angle
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter <= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter >= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
 						image_angle = other._lead_target_direction
 						direction = image_angle
 						damage = other.projectile_damage
+						projectile_damage_type = other.projectile_damage_type
 					}	
 					fire_counter = 0
 				}
@@ -203,6 +210,7 @@ switch(state){
 							image_angle = other._lead_target_direction
 							direction = image_angle
 							damage = other.ordinance_damage
+							projectile_damage_type = other.ordinance_mass
 						}	
 						ordinance_counter = 0
 						ordinance_ammo--
@@ -224,6 +232,10 @@ switch(state){
 						speed += acceleration_rate
 					}
 				}
+				//adjust to missiles
+				if (distance_to_object(target_ship > weapon_range)){
+					state = iron_fighter_1_enemy.approaching
+				}
 			
 			
 			break;
@@ -241,6 +253,8 @@ if (idle_turning_counter > 0){
 }
 if (fire_counter < fire_rate){
 	fire_counter++
+
 }
 clamp(speed, 0, max_speed)
+clamp (turn_speed, min_turn_speed, max_turn_speed)
 #endregion

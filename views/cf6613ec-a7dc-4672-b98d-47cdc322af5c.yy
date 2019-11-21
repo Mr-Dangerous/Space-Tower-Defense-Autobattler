@@ -10,7 +10,7 @@
         "3d50de8d-1f56-4e5e-84bb-4a54a84f9236",
         "533d8de2-ffd6-4a8b-a567-d9766830c24f",
         "85d423e8-2523-4b1f-b249-7f8b38bcd9f2",
-        "261e3632-93a3-4394-8db0-9e2d08778188"
+        "d69b99b1-ccb6-41e8-82db-ac779214b425"
     ],
     "filterType": "GMObject",
     "folderName": "Enemy Parent Objects",

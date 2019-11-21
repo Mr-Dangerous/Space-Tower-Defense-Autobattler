@@ -22,7 +22,7 @@
             "mvc": "1.0",
             "objectId": "aba2d8d7-809f-44cf-b25e-03687e33114e",
             "propertyId": "0b03f3e1-f0c7-4736-9f54-00631a4ba0ed",
-            "value": "o_iron_fighter_1"
+            "value": "o_iron_fighter_1_player"
         }
     ],
     "parentObjectId": "aba2d8d7-809f-44cf-b25e-03687e33114e",

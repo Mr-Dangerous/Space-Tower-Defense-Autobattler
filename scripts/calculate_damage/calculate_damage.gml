@@ -1,6 +1,6 @@
-//@param damage_type
-//@param damage
-//@damaged object
+///@param damage_type
+///@param damage
+///@param damaged object
 
 var damage_type = argument0
 var damage = argument1
@@ -11,19 +11,7 @@ damage_to_shields = 0
 
 switch(damage_type){
 	case "light":
-		//damage to shields
-		/*
-		if (shields > 0){
-			shield_damage = round(damage * .5)
-			carry_over_damage = 0
-			if (shield_damage > damaged_object.sheilds){
-				carry_over_damage = shield_damage - damaged_object.shields
-				shield_damage = damaged_object.sheilds
-			}
-			damage_to_sheilds = shield_damage
-		}
-		*/
-		
+			
 		if (damaged_object.shields > 0){
 			damage_to_shields = round(damage * .5)
 			damage_to_armor = round(damage * .1)
@@ -31,7 +19,7 @@ switch(damage_type){
 		}
 		
 		//damage_to_armor
-		if (damaged_object.shields < 0){
+		if (damaged_object.shields <= 0){
 			damage_to_armor = damage
 		}
 		
@@ -47,7 +35,7 @@ switch(damage_type){
 		}
 		
 		//damage_to_armor
-		if (damaged_object.shields < 0){
+		if (damaged_object.shields <= 0){
 			damage_to_armor = damage
 		}
 	break;
@@ -55,13 +43,13 @@ switch(damage_type){
 	case "heavy":
 		
 		if (damaged_object.shields > 0){
-			damage_to_shields = round(damage * .15)
-			damage_to_armor = round(damage * .85)
+			damage_to_shields = round(damage * .25)
+			damage_to_armor = round(damage * .75)
 			
 		}
 		
 		//damage_to_armor
-		if (damaged_object.shields < 0){
+		if (damaged_object.shields <= 0){
 			damage_to_armor = damage
 		}
 	break;
@@ -75,20 +63,20 @@ switch(damage_type){
 		}
 		
 		//damage_to_armor
-		if (damaged_object.shields < 0){
+		if (damaged_object.shields <= 0){
 			damage_to_armor = damage * .2
 		}
 	break;
-	
+	//may change this to peircing later
 	case "true":
 
 		damage_to_armor = damage
 		
 	break;
 }
-with (damaged_object){
-	//reduce damage with armor damage reduction
-	
-	armor -= damage_to_armor-armor_damage_reduction
-	shields -= damage_to_shields-shield_damage_reduction
-}
+
+damage[0] = damage_to_armor
+damage[1] = damage_to_shields
+
+return damage
+

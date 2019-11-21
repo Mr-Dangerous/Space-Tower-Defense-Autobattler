@@ -93,6 +93,20 @@
             "value": "0",
             "varName": "projectile_leader",
             "varType": 0
+        },
+        {
+            "id": "0508bd58-77b7-436b-9430-402aa47844df",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "",
+            "varName": "projectile_damage_type",
+            "varType": 2
         }
     ],
     "solid": false,

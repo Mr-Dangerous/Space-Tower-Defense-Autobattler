@@ -63,14 +63,6 @@
             "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
             "propertyId": "9069c321-cf86-4683-b4cb-41ecba71b3c1",
             "value": "2.3"
-        },
-        {
-            "id": "0732dd92-71c2-4b36-924c-934f7bd56045",
-            "modelName": "GMOverriddenProperty",
-            "mvc": "1.0",
-            "objectId": "8b093263-b968-4998-8236-1c9a62df0114",
-            "propertyId": "2902c89d-ed4a-4aff-9681-8e0881e9ea38",
-            "value": "o_iron_fighter_1"
         }
     ],
     "parentObjectId": "8b093263-b968-4998-8236-1c9a62df0114",

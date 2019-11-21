@@ -5,16 +5,6 @@
     "name": "o_player_ship",
     "eventList": [
         {
-            "id": "1d615a7f-20f2-4391-8e00-f187167310e1",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 1,
-            "m_owner": "831522c6-2dac-4507-a762-ca9ac15be58e"
-        },
-        {
             "id": "8217fd69-fe42-44dc-a4fa-730da1e24984",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -52,7 +42,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "noone",
+            "value": "instance_find(o_player_squad, 0)",
             "varName": "squad_object",
             "varType": 4
         },
