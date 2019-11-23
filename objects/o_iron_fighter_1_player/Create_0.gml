@@ -10,3 +10,8 @@ enum iron_fighter_1_player{
 
 state = iron_fighter_1_player.planning
 
+enum iron_fighter_1_player_combat{
+	none
+}
+combat_state = iron_fighter_1_player_combat.none
+

@@ -34,6 +34,8 @@ if (armor < 1){
 #region State Machine
 
 switch(state){
+	
+	#region planning
 	case iron_fighter_1_player.planning:
 		x = assigned_grid_space.x
 		y = assigned_grid_space.y
@@ -59,7 +61,15 @@ switch(state){
 			}
 		}
 	break;
+	#endregion
 	
+	#region scanning
+	case iron_fighter_1_player.scaninng:
+		
+	break;
+	#endregion
+	
+	#region approaching
 	case iron_fighter_1_player.approaching:
 		target_ship = instance_nearest(x, y, o_enemy_ship)
 		
@@ -75,7 +85,9 @@ switch(state){
 		var _direction_to_target = point_direction(x, y, target_ship.x, target_ship.y)
 		move_towards_target(_direction_to_target)
 	break;
+	#endregion
 	
+	#region engaging
 	case iron_fighter_1_player.engaging:
 	if (!instance_exists(target_ship)){
 		state = iron_fighter_1_player.approaching
@@ -113,11 +125,15 @@ switch(state){
 					}	
 					fire_counter = 0
 				}
+				
+				
+				/*
 				if (distance_to_object(target_ship) < (weapon_range*.75)){
 					speed -= acceleration_rate
 				} else {
 					speed += acceleration_rate
 				}
+				*/
 				
 				//change targets if it leaves range
 				if (distance_to_object(target_ship > weapon_range)){
@@ -143,10 +159,12 @@ switch(state){
 				_lead_target_y = target_ship.y + lengthdir_y((_target_speed * _projectile_flight_time), _target_direction)
 				_lead_target_direction = point_direction(x, y, _lead_target_x, _lead_target_y)
 				
-				face_target(_lead_target_direction)
-				direction = image_angle
+				
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter >= fire_rate and distance_to_point(_lead_target_x, _lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle 
+						and fire_counter >= fire_rate 
+						and distance_to_point(_lead_target_x, _lead_target_y)<weapon_range){
+							
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
@@ -157,11 +175,26 @@ switch(state){
 					}	
 					fire_counter = 0
 				}
-				if (distance_to_object(target_ship) < (weapon_range*.75)){
-					speed -= acceleration_rate
-				} else {
-					speed += acceleration_rate
+				
+				#region combat state machine
+				//this may be lifted out and put elsewhere
+				switch(combat_state){
+					case iron_fighter_1_player_combat.none:
+						//determine new combat state to enter
+						
+						//find the positions of the nearest three enemy ships, target_ship is #1!
+						_second_nearest_ship = instance_nth_nearest(x, y, o_enemy_ship, 2)
+						_third_nearest_ship = instance_nth_nearest(x, y, o_enemy_ship, 3)
+						
+						
+					break;
+					
+					
+					
 				}
+				#endregion
+				
+				
 				
 				//change targets if it leaves range
 				if (distance_to_object(target_ship > weapon_range)){
@@ -190,7 +223,10 @@ switch(state){
 				face_target(_lead_target_direction)
 				direction = image_angle
 				//Fire on target if ready and allowed
-				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle and fire_counter >= fire_rate and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+				if (abs(angle_difference(image_angle, _lead_target_direction)) <= gimbal_max_angle 
+						and fire_counter >= fire_rate 
+						and distance_to_point(_lead_target_x, lead_target_y)<weapon_range){
+							
 					var _projectile = instance_create_layer(x, y, "Projectiles", projectile_type)
 					with (_projectile){
 						speed = other.projectile_speed
@@ -203,7 +239,8 @@ switch(state){
 				}
 				//fire ordinance 
 				if (ordinance_ammo > 0){
-					if (image_angle = _lead_target_direction and ordinance_counter = ordinance_fire_rate){
+					if (image_angle = _lead_target_direction 
+						and ordinance_counter = ordinance_fire_rate){
 						var _ordinance = instance_create_layer(x, y, "Projectiles", ordinance_type)
 						with (_ordinance){
 							speed = other.ordinance_speed
@@ -234,7 +271,7 @@ switch(state){
 				}
 				//adjust to missiles
 				if (distance_to_object(target_ship > weapon_range)){
-					state = iron_fighter_1_enemy.approaching
+					state = iron_fighter_1_player.approaching
 				}
 			
 			
@@ -244,6 +281,8 @@ switch(state){
 		}
 	}
 	break;
+	#endregion
+	
 }
 #endregion
 
